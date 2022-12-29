@@ -1,0 +1,1446 @@
+ubuntu@MSI:~/Fall2022/CS6220/HW1/Spark$ spark-submit wordcount.py
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ubuntu/hadoop/spark-3.3.0/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ubuntu/hadoop/hadoop-3.3.2/share/hadoop/common/lib/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+22/09/08 23:45:33 WARN Utils: Your hostname, MSI resolves to a loopback address: 127.0.1.1; using 172.28.105.141 instead (on interface eth0)
+22/09/08 23:45:33 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+22/09/08 23:45:38 INFO SparkContext: Running Spark version 3.3.0
+22/09/08 23:45:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+22/09/08 23:45:38 INFO ResourceUtils: ==============================================================
+22/09/08 23:45:38 INFO ResourceUtils: No custom resources configured for spark.driver.
+22/09/08 23:45:38 INFO ResourceUtils: ==============================================================
+22/09/08 23:45:38 INFO SparkContext: Submitted application: PySpark Word Count Exmaple
+22/09/08 23:45:38 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+22/09/08 23:45:38 INFO ResourceProfile: Limiting resource is cpu
+22/09/08 23:45:38 INFO ResourceProfileManager: Added ResourceProfile id: 0
+22/09/08 23:45:38 INFO SecurityManager: Changing view acls to: ubuntu
+22/09/08 23:45:38 INFO SecurityManager: Changing modify acls to: ubuntu
+22/09/08 23:45:38 INFO SecurityManager: Changing view acls groups to:
+22/09/08 23:45:38 INFO SecurityManager: Changing modify acls groups to:
+22/09/08 23:45:38 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(ubuntu); groups with view permissions: Set(); users  with modify permissions: Set(ubuntu); groups with modify permissions: Set()
+22/09/08 23:45:39 INFO Utils: Successfully started service 'sparkDriver' on port 42957.
+22/09/08 23:45:39 INFO SparkEnv: Registering MapOutputTracker
+22/09/08 23:45:39 INFO SparkEnv: Registering BlockManagerMaster
+22/09/08 23:45:39 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+22/09/08 23:45:39 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+22/09/08 23:45:39 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+22/09/08 23:45:39 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-726fdfa9-b396-4637-8ee6-4fcbcbef14c2
+22/09/08 23:45:39 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+22/09/08 23:45:39 INFO SparkEnv: Registering OutputCommitCoordinator
+22/09/08 23:45:39 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+22/09/08 23:45:39 INFO Executor: Starting executor ID driver on host 172.28.105.141
+22/09/08 23:45:39 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+22/09/08 23:45:39 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35905.
+22/09/08 23:45:39 INFO NettyBlockTransferService: Server created on localhost:35905
+22/09/08 23:45:39 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+22/09/08 23:45:39 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, localhost, 35905, None)
+22/09/08 23:45:39 INFO BlockManagerMasterEndpoint: Registering block manager localhost:35905 with 434.4 MiB RAM, BlockManagerId(driver, localhost, 35905, None)
+22/09/08 23:45:39 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, localhost, 35905, None)
+22/09/08 23:45:39 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, localhost, 35905, None)
+22/09/08 23:45:40 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 307.6 KiB, free 434.1 MiB)
+22/09/08 23:45:40 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 51.6 KiB, free 434.0 MiB)
+22/09/08 23:45:40 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:35905 (size: 51.6 KiB, free: 434.3 MiB)
+22/09/08 23:45:40 INFO SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:0
+22/09/08 23:45:40 INFO FileInputFormat: Total input files to process : 1
+22/09/08 23:45:40 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+22/09/08 23:45:40 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:45:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:45:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:45:40 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:83
+22/09/08 23:45:40 INFO DAGScheduler: Registering RDD 3 (reduceByKey at /home/ubuntu/Fall2022/CS6220/HW1/Spark/wordcount.py:14) as input to shuffle 0
+22/09/08 23:45:40 INFO DAGScheduler: Got job 0 (runJob at SparkHadoopWriter.scala:83) with 75 output partitions
+22/09/08 23:45:40 INFO DAGScheduler: Final stage: ResultStage 1 (runJob at SparkHadoopWriter.scala:83)
+22/09/08 23:45:40 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+22/09/08 23:45:40 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+22/09/08 23:45:40 INFO DAGScheduler: Submitting ShuffleMapStage 0 (PairwiseRDD[3] at reduceByKey at /home/ubuntu/Fall2022/CS6220/HW1/Spark/wordcount.py:14), which has no missing parents
+22/09/08 23:45:40 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 12.5 KiB, free 434.0 MiB)
+22/09/08 23:45:40 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.5 KiB, free 434.0 MiB)
+22/09/08 23:45:40 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on localhost:35905 (size: 7.5 KiB, free: 434.3 MiB)
+22/09/08 23:45:40 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1513
+22/09/08 23:45:40 INFO DAGScheduler: Submitting 75 missing tasks from ShuffleMapStage 0 (PairwiseRDD[3] at reduceByKey at /home/ubuntu/Fall2022/CS6220/HW1/Spark/wordcount.py:14) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+22/09/08 23:45:40 INFO TaskSchedulerImpl: Adding task set 0.0 with 75 tasks resource profile 0
+22/09/08 23:45:40 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.28.105.141, executor driver, partition 0, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:45:40 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+22/09/08 23:45:41 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:0+134217728
+22/09/08 23:45:46 INFO PythonRunner: Times: total = 5628, boot = 272, init = 69, finish = 5287
+22/09/08 23:45:46 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1690 bytes result sent to driver
+22/09/08 23:45:46 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (172.28.105.141, executor driver, partition 1, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:45:46 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+22/09/08 23:45:46 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 5844 ms on 172.28.105.141 (executor driver) (1/75)
+22/09/08 23:45:46 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:134217728+134217728
+22/09/08 23:45:46 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 54745
+22/09/08 23:46:21 INFO PythonRunner: Times: total = 35051, boot = -123, init = 127, finish = 35047
+22/09/08 23:46:21 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1690 bytes result sent to driver
+22/09/08 23:46:21 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (172.28.105.141, executor driver, partition 2, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:21 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 35160 ms on 172.28.105.141 (executor driver) (2/75)
+22/09/08 23:46:21 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+22/09/08 23:46:21 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:268435456+134217728
+22/09/08 23:46:27 INFO PythonRunner: Times: total = 5246, boot = -107, init = 110, finish = 5243
+22/09/08 23:46:27 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 1690 bytes result sent to driver
+22/09/08 23:46:27 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (172.28.105.141, executor driver, partition 3, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:27 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+22/09/08 23:46:27 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 5355 ms on 172.28.105.141 (executor driver) (3/75)
+22/09/08 23:46:27 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:402653184+134217728
+22/09/08 23:46:32 INFO PythonRunner: Times: total = 5100, boot = -101, init = 102, finish = 5099
+22/09/08 23:46:32 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 1690 bytes result sent to driver
+22/09/08 23:46:32 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (172.28.105.141, executor driver, partition 4, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:32 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+22/09/08 23:46:32 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 5203 ms on 172.28.105.141 (executor driver) (4/75)
+22/09/08 23:46:32 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:536870912+134217728
+22/09/08 23:46:37 INFO PythonRunner: Times: total = 5161, boot = -96, init = 97, finish = 5160
+22/09/08 23:46:37 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 1690 bytes result sent to driver
+22/09/08 23:46:37 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (172.28.105.141, executor driver, partition 5, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:37 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 5260 ms on 172.28.105.141 (executor driver) (5/75)
+22/09/08 23:46:37 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+22/09/08 23:46:37 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:671088640+134217728
+22/09/08 23:46:43 INFO PythonRunner: Times: total = 5746, boot = -94, init = 96, finish = 5744
+22/09/08 23:46:43 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 1690 bytes result sent to driver
+22/09/08 23:46:43 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (172.28.105.141, executor driver, partition 6, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:43 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+22/09/08 23:46:43 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 5844 ms on 172.28.105.141 (executor driver) (6/75)
+22/09/08 23:46:43 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:805306368+134217728
+22/09/08 23:46:48 INFO PythonRunner: Times: total = 5393, boot = -92, init = 94, finish = 5391
+22/09/08 23:46:49 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 1690 bytes result sent to driver
+22/09/08 23:46:49 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (172.28.105.141, executor driver, partition 7, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:49 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 5491 ms on 172.28.105.141 (executor driver) (7/75)
+22/09/08 23:46:49 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+22/09/08 23:46:49 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:939524096+134217728
+22/09/08 23:46:54 INFO PythonRunner: Times: total = 5327, boot = -97, init = 99, finish = 5325
+22/09/08 23:46:54 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 1690 bytes result sent to driver
+22/09/08 23:46:54 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (172.28.105.141, executor driver, partition 8, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:46:54 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 5425 ms on 172.28.105.141 (executor driver) (8/75)
+22/09/08 23:46:54 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+22/09/08 23:46:54 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1073741824+134217728
+22/09/08 23:47:00 INFO PythonRunner: Times: total = 5833, boot = -91, init = 93, finish = 5831
+22/09/08 23:47:00 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 1690 bytes result sent to driver
+22/09/08 23:47:00 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (172.28.105.141, executor driver, partition 9, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:00 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 5931 ms on 172.28.105.141 (executor driver) (9/75)
+22/09/08 23:47:00 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+22/09/08 23:47:00 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1207959552+134217728
+22/09/08 23:47:05 INFO PythonRunner: Times: total = 5237, boot = -96, init = 98, finish = 5235
+22/09/08 23:47:05 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 1690 bytes result sent to driver
+22/09/08 23:47:05 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (172.28.105.141, executor driver, partition 10, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:05 INFO Executor: Running task 10.0 in stage 0.0 (TID 10)
+22/09/08 23:47:05 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 5335 ms on 172.28.105.141 (executor driver) (10/75)
+22/09/08 23:47:05 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1342177280+134217728
+22/09/08 23:47:11 INFO PythonRunner: Times: total = 5238, boot = -93, init = 94, finish = 5237
+22/09/08 23:47:11 INFO Executor: Finished task 10.0 in stage 0.0 (TID 10). 1690 bytes result sent to driver
+22/09/08 23:47:11 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (172.28.105.141, executor driver, partition 11, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:11 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 5337 ms on 172.28.105.141 (executor driver) (11/75)
+22/09/08 23:47:11 INFO Executor: Running task 11.0 in stage 0.0 (TID 11)
+22/09/08 23:47:11 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1476395008+134217728
+22/09/08 23:47:16 INFO PythonRunner: Times: total = 5460, boot = -96, init = 98, finish = 5458
+22/09/08 23:47:16 INFO Executor: Finished task 11.0 in stage 0.0 (TID 11). 1690 bytes result sent to driver
+22/09/08 23:47:16 INFO TaskSetManager: Starting task 12.0 in stage 0.0 (TID 12) (172.28.105.141, executor driver, partition 12, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:16 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 5557 ms on 172.28.105.141 (executor driver) (12/75)
+22/09/08 23:47:16 INFO Executor: Running task 12.0 in stage 0.0 (TID 12)
+22/09/08 23:47:16 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1610612736+134217728
+22/09/08 23:47:21 INFO PythonRunner: Times: total = 5138, boot = -93, init = 95, finish = 5136
+22/09/08 23:47:21 INFO Executor: Finished task 12.0 in stage 0.0 (TID 12). 1690 bytes result sent to driver
+22/09/08 23:47:21 INFO TaskSetManager: Starting task 13.0 in stage 0.0 (TID 13) (172.28.105.141, executor driver, partition 13, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:21 INFO TaskSetManager: Finished task 12.0 in stage 0.0 (TID 12) in 5241 ms on 172.28.105.141 (executor driver) (13/75)
+22/09/08 23:47:21 INFO Executor: Running task 13.0 in stage 0.0 (TID 13)
+22/09/08 23:47:21 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1744830464+134217728
+22/09/08 23:47:27 INFO PythonRunner: Times: total = 5279, boot = -98, init = 99, finish = 5278
+22/09/08 23:47:27 INFO Executor: Finished task 13.0 in stage 0.0 (TID 13). 1690 bytes result sent to driver
+22/09/08 23:47:27 INFO TaskSetManager: Starting task 14.0 in stage 0.0 (TID 14) (172.28.105.141, executor driver, partition 14, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:27 INFO Executor: Running task 14.0 in stage 0.0 (TID 14)
+22/09/08 23:47:27 INFO TaskSetManager: Finished task 13.0 in stage 0.0 (TID 13) in 5377 ms on 172.28.105.141 (executor driver) (14/75)
+22/09/08 23:47:27 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:1879048192+134217728
+22/09/08 23:47:32 INFO PythonRunner: Times: total = 5232, boot = -92, init = 94, finish = 5230
+22/09/08 23:47:32 INFO Executor: Finished task 14.0 in stage 0.0 (TID 14). 1690 bytes result sent to driver
+22/09/08 23:47:32 INFO TaskSetManager: Starting task 15.0 in stage 0.0 (TID 15) (172.28.105.141, executor driver, partition 15, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:32 INFO TaskSetManager: Finished task 14.0 in stage 0.0 (TID 14) in 5326 ms on 172.28.105.141 (executor driver) (15/75)
+22/09/08 23:47:32 INFO Executor: Running task 15.0 in stage 0.0 (TID 15)
+22/09/08 23:47:32 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2013265920+134217728
+22/09/08 23:47:37 INFO PythonRunner: Times: total = 5141, boot = -94, init = 96, finish = 5139
+22/09/08 23:47:37 INFO Executor: Finished task 15.0 in stage 0.0 (TID 15). 1690 bytes result sent to driver
+22/09/08 23:47:37 INFO TaskSetManager: Starting task 16.0 in stage 0.0 (TID 16) (172.28.105.141, executor driver, partition 16, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:37 INFO Executor: Running task 16.0 in stage 0.0 (TID 16)
+22/09/08 23:47:37 INFO TaskSetManager: Finished task 15.0 in stage 0.0 (TID 15) in 5244 ms on 172.28.105.141 (executor driver) (16/75)
+22/09/08 23:47:37 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2147483648+134217728
+22/09/08 23:47:44 INFO PythonRunner: Times: total = 6460, boot = -93, init = 95, finish = 6458
+22/09/08 23:47:44 INFO Executor: Finished task 16.0 in stage 0.0 (TID 16). 1690 bytes result sent to driver
+22/09/08 23:47:44 INFO TaskSetManager: Starting task 17.0 in stage 0.0 (TID 17) (172.28.105.141, executor driver, partition 17, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:44 INFO TaskSetManager: Finished task 16.0 in stage 0.0 (TID 16) in 6564 ms on 172.28.105.141 (executor driver) (17/75)
+22/09/08 23:47:44 INFO Executor: Running task 17.0 in stage 0.0 (TID 17)
+22/09/08 23:47:44 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2281701376+134217728
+22/09/08 23:47:49 INFO PythonRunner: Times: total = 5330, boot = -109, init = 111, finish = 5328
+22/09/08 23:47:49 INFO Executor: Finished task 17.0 in stage 0.0 (TID 17). 1690 bytes result sent to driver
+22/09/08 23:47:49 INFO TaskSetManager: Starting task 18.0 in stage 0.0 (TID 18) (172.28.105.141, executor driver, partition 18, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:49 INFO TaskSetManager: Finished task 17.0 in stage 0.0 (TID 17) in 5436 ms on 172.28.105.141 (executor driver) (18/75)
+22/09/08 23:47:49 INFO Executor: Running task 18.0 in stage 0.0 (TID 18)
+22/09/08 23:47:49 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2415919104+134217728
+22/09/08 23:47:54 INFO PythonRunner: Times: total = 5108, boot = -91, init = 92, finish = 5107
+22/09/08 23:47:55 INFO Executor: Finished task 18.0 in stage 0.0 (TID 18). 1690 bytes result sent to driver
+22/09/08 23:47:55 INFO TaskSetManager: Starting task 19.0 in stage 0.0 (TID 19) (172.28.105.141, executor driver, partition 19, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:47:55 INFO TaskSetManager: Finished task 18.0 in stage 0.0 (TID 18) in 5204 ms on 172.28.105.141 (executor driver) (19/75)
+22/09/08 23:47:55 INFO Executor: Running task 19.0 in stage 0.0 (TID 19)
+22/09/08 23:47:55 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2550136832+134217728
+22/09/08 23:48:00 INFO PythonRunner: Times: total = 5181, boot = -100, init = 102, finish = 5179
+22/09/08 23:48:00 INFO Executor: Finished task 19.0 in stage 0.0 (TID 19). 1690 bytes result sent to driver
+22/09/08 23:48:00 INFO TaskSetManager: Starting task 20.0 in stage 0.0 (TID 20) (172.28.105.141, executor driver, partition 20, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:00 INFO Executor: Running task 20.0 in stage 0.0 (TID 20)
+22/09/08 23:48:00 INFO TaskSetManager: Finished task 19.0 in stage 0.0 (TID 19) in 5283 ms on 172.28.105.141 (executor driver) (20/75)
+22/09/08 23:48:00 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2684354560+134217728
+22/09/08 23:48:05 INFO PythonRunner: Times: total = 5333, boot = -90, init = 91, finish = 5332
+22/09/08 23:48:06 INFO Executor: Finished task 20.0 in stage 0.0 (TID 20). 1690 bytes result sent to driver
+22/09/08 23:48:06 INFO TaskSetManager: Starting task 21.0 in stage 0.0 (TID 21) (172.28.105.141, executor driver, partition 21, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:06 INFO TaskSetManager: Finished task 20.0 in stage 0.0 (TID 20) in 6032 ms on 172.28.105.141 (executor driver) (21/75)
+22/09/08 23:48:06 INFO Executor: Running task 21.0 in stage 0.0 (TID 21)
+22/09/08 23:48:06 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2818572288+134217728
+22/09/08 23:48:23 INFO PythonRunner: Times: total = 10746, boot = -6812, init = 6814, finish = 10744
+22/09/08 23:48:23 INFO Executor: Finished task 21.0 in stage 0.0 (TID 21). 1690 bytes result sent to driver
+22/09/08 23:48:23 INFO TaskSetManager: Starting task 22.0 in stage 0.0 (TID 22) (172.28.105.141, executor driver, partition 22, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:23 INFO TaskSetManager: Finished task 21.0 in stage 0.0 (TID 21) in 16960 ms on 172.28.105.141 (executor driver) (22/75)
+22/09/08 23:48:23 INFO Executor: Running task 22.0 in stage 0.0 (TID 22)
+22/09/08 23:48:23 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:2952790016+134217728
+22/09/08 23:48:28 INFO PythonRunner: Times: total = 5205, boot = -93, init = 95, finish = 5203
+22/09/08 23:48:28 INFO Executor: Finished task 22.0 in stage 0.0 (TID 22). 1690 bytes result sent to driver
+22/09/08 23:48:28 INFO TaskSetManager: Starting task 23.0 in stage 0.0 (TID 23) (172.28.105.141, executor driver, partition 23, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:28 INFO TaskSetManager: Finished task 22.0 in stage 0.0 (TID 22) in 5297 ms on 172.28.105.141 (executor driver) (23/75)
+22/09/08 23:48:28 INFO Executor: Running task 23.0 in stage 0.0 (TID 23)
+22/09/08 23:48:28 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3087007744+134217728
+22/09/08 23:48:33 INFO PythonRunner: Times: total = 5091, boot = -88, init = 90, finish = 5089
+22/09/08 23:48:33 INFO Executor: Finished task 23.0 in stage 0.0 (TID 23). 1690 bytes result sent to driver
+22/09/08 23:48:33 INFO TaskSetManager: Starting task 24.0 in stage 0.0 (TID 24) (172.28.105.141, executor driver, partition 24, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:33 INFO TaskSetManager: Finished task 23.0 in stage 0.0 (TID 23) in 5184 ms on 172.28.105.141 (executor driver) (24/75)
+22/09/08 23:48:33 INFO Executor: Running task 24.0 in stage 0.0 (TID 24)
+22/09/08 23:48:33 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3221225472+134217728
+22/09/08 23:48:39 INFO PythonRunner: Times: total = 5239, boot = -92, init = 94, finish = 5237
+22/09/08 23:48:39 INFO Executor: Finished task 24.0 in stage 0.0 (TID 24). 1690 bytes result sent to driver
+22/09/08 23:48:39 INFO TaskSetManager: Starting task 25.0 in stage 0.0 (TID 25) (172.28.105.141, executor driver, partition 25, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:39 INFO Executor: Running task 25.0 in stage 0.0 (TID 25)
+22/09/08 23:48:39 INFO TaskSetManager: Finished task 24.0 in stage 0.0 (TID 24) in 5337 ms on 172.28.105.141 (executor driver) (25/75)
+22/09/08 23:48:39 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3355443200+134217728
+22/09/08 23:48:44 INFO PythonRunner: Times: total = 5024, boot = -91, init = 92, finish = 5023
+22/09/08 23:48:44 INFO Executor: Finished task 25.0 in stage 0.0 (TID 25). 1690 bytes result sent to driver
+22/09/08 23:48:44 INFO TaskSetManager: Starting task 26.0 in stage 0.0 (TID 26) (172.28.105.141, executor driver, partition 26, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:44 INFO Executor: Running task 26.0 in stage 0.0 (TID 26)
+22/09/08 23:48:44 INFO TaskSetManager: Finished task 25.0 in stage 0.0 (TID 25) in 5125 ms on 172.28.105.141 (executor driver) (26/75)
+22/09/08 23:48:44 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3489660928+134217728
+22/09/08 23:48:49 INFO PythonRunner: Times: total = 5140, boot = -95, init = 97, finish = 5138
+22/09/08 23:48:49 INFO Executor: Finished task 26.0 in stage 0.0 (TID 26). 1690 bytes result sent to driver
+22/09/08 23:48:49 INFO TaskSetManager: Starting task 27.0 in stage 0.0 (TID 27) (172.28.105.141, executor driver, partition 27, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:49 INFO TaskSetManager: Finished task 26.0 in stage 0.0 (TID 26) in 5233 ms on 172.28.105.141 (executor driver) (27/75)
+22/09/08 23:48:49 INFO Executor: Running task 27.0 in stage 0.0 (TID 27)
+22/09/08 23:48:49 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3623878656+134217728
+22/09/08 23:48:55 INFO PythonRunner: Times: total = 5525, boot = -89, init = 90, finish = 5524
+22/09/08 23:48:55 INFO Executor: Finished task 27.0 in stage 0.0 (TID 27). 1690 bytes result sent to driver
+22/09/08 23:48:55 INFO TaskSetManager: Starting task 28.0 in stage 0.0 (TID 28) (172.28.105.141, executor driver, partition 28, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:48:55 INFO Executor: Running task 28.0 in stage 0.0 (TID 28)
+22/09/08 23:48:55 INFO TaskSetManager: Finished task 27.0 in stage 0.0 (TID 27) in 5625 ms on 172.28.105.141 (executor driver) (28/75)
+22/09/08 23:48:55 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3758096384+134217728
+22/09/08 23:49:00 INFO PythonRunner: Times: total = 5528, boot = -93, init = 95, finish = 5526
+22/09/08 23:49:00 INFO Executor: Finished task 28.0 in stage 0.0 (TID 28). 1690 bytes result sent to driver
+22/09/08 23:49:00 INFO TaskSetManager: Starting task 29.0 in stage 0.0 (TID 29) (172.28.105.141, executor driver, partition 29, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:00 INFO TaskSetManager: Finished task 28.0 in stage 0.0 (TID 28) in 5628 ms on 172.28.105.141 (executor driver) (29/75)
+22/09/08 23:49:00 INFO Executor: Running task 29.0 in stage 0.0 (TID 29)
+22/09/08 23:49:00 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:3892314112+134217728
+22/09/08 23:49:06 INFO PythonRunner: Times: total = 5514, boot = -100, init = 103, finish = 5511
+22/09/08 23:49:06 INFO Executor: Finished task 29.0 in stage 0.0 (TID 29). 1690 bytes result sent to driver
+22/09/08 23:49:06 INFO TaskSetManager: Starting task 30.0 in stage 0.0 (TID 30) (172.28.105.141, executor driver, partition 30, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:06 INFO Executor: Running task 30.0 in stage 0.0 (TID 30)
+22/09/08 23:49:06 INFO TaskSetManager: Finished task 29.0 in stage 0.0 (TID 29) in 5612 ms on 172.28.105.141 (executor driver) (30/75)
+22/09/08 23:49:06 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4026531840+134217728
+22/09/08 23:49:12 INFO PythonRunner: Times: total = 6083, boot = -93, init = 95, finish = 6081
+22/09/08 23:49:12 INFO Executor: Finished task 30.0 in stage 0.0 (TID 30). 1690 bytes result sent to driver
+22/09/08 23:49:12 INFO TaskSetManager: Starting task 31.0 in stage 0.0 (TID 31) (172.28.105.141, executor driver, partition 31, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:12 INFO TaskSetManager: Finished task 30.0 in stage 0.0 (TID 30) in 6183 ms on 172.28.105.141 (executor driver) (31/75)
+22/09/08 23:49:12 INFO Executor: Running task 31.0 in stage 0.0 (TID 31)
+22/09/08 23:49:12 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4160749568+134217728
+22/09/08 23:49:21 INFO PythonRunner: Times: total = 8451, boot = -338, init = 339, finish = 8450
+22/09/08 23:49:21 INFO Executor: Finished task 31.0 in stage 0.0 (TID 31). 1690 bytes result sent to driver
+22/09/08 23:49:21 INFO TaskSetManager: Starting task 32.0 in stage 0.0 (TID 32) (172.28.105.141, executor driver, partition 32, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:21 INFO Executor: Running task 32.0 in stage 0.0 (TID 32)
+22/09/08 23:49:21 INFO TaskSetManager: Finished task 31.0 in stage 0.0 (TID 31) in 8793 ms on 172.28.105.141 (executor driver) (32/75)
+22/09/08 23:49:21 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4294967296+134217728
+22/09/08 23:49:26 INFO PythonRunner: Times: total = 5469, boot = -95, init = 97, finish = 5467
+22/09/08 23:49:26 INFO Executor: Finished task 32.0 in stage 0.0 (TID 32). 1690 bytes result sent to driver
+22/09/08 23:49:26 INFO TaskSetManager: Starting task 33.0 in stage 0.0 (TID 33) (172.28.105.141, executor driver, partition 33, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:26 INFO TaskSetManager: Finished task 32.0 in stage 0.0 (TID 32) in 5563 ms on 172.28.105.141 (executor driver) (33/75)
+22/09/08 23:49:26 INFO Executor: Running task 33.0 in stage 0.0 (TID 33)
+22/09/08 23:49:26 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4429185024+134217728
+22/09/08 23:49:32 INFO PythonRunner: Times: total = 5446, boot = -94, init = 96, finish = 5444
+22/09/08 23:49:32 INFO Executor: Finished task 33.0 in stage 0.0 (TID 33). 1690 bytes result sent to driver
+22/09/08 23:49:32 INFO TaskSetManager: Starting task 34.0 in stage 0.0 (TID 34) (172.28.105.141, executor driver, partition 34, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:32 INFO TaskSetManager: Finished task 33.0 in stage 0.0 (TID 33) in 5546 ms on 172.28.105.141 (executor driver) (34/75)
+22/09/08 23:49:32 INFO Executor: Running task 34.0 in stage 0.0 (TID 34)
+22/09/08 23:49:32 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4563402752+134217728
+22/09/08 23:49:37 INFO PythonRunner: Times: total = 5362, boot = -105, init = 107, finish = 5360
+22/09/08 23:49:37 INFO Executor: Finished task 34.0 in stage 0.0 (TID 34). 1690 bytes result sent to driver
+22/09/08 23:49:37 INFO TaskSetManager: Starting task 35.0 in stage 0.0 (TID 35) (172.28.105.141, executor driver, partition 35, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:37 INFO TaskSetManager: Finished task 34.0 in stage 0.0 (TID 34) in 5475 ms on 172.28.105.141 (executor driver) (35/75)
+22/09/08 23:49:37 INFO Executor: Running task 35.0 in stage 0.0 (TID 35)
+22/09/08 23:49:37 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4697620480+134217728
+22/09/08 23:49:43 INFO PythonRunner: Times: total = 5275, boot = -93, init = 95, finish = 5273
+22/09/08 23:49:43 INFO Executor: Finished task 35.0 in stage 0.0 (TID 35). 1690 bytes result sent to driver
+22/09/08 23:49:43 INFO TaskSetManager: Starting task 36.0 in stage 0.0 (TID 36) (172.28.105.141, executor driver, partition 36, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:43 INFO TaskSetManager: Finished task 35.0 in stage 0.0 (TID 35) in 5373 ms on 172.28.105.141 (executor driver) (36/75)
+22/09/08 23:49:43 INFO Executor: Running task 36.0 in stage 0.0 (TID 36)
+22/09/08 23:49:43 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4831838208+134217728
+22/09/08 23:49:49 INFO PythonRunner: Times: total = 6533, boot = -95, init = 97, finish = 6531
+22/09/08 23:49:49 INFO Executor: Finished task 36.0 in stage 0.0 (TID 36). 1690 bytes result sent to driver
+22/09/08 23:49:49 INFO TaskSetManager: Starting task 37.0 in stage 0.0 (TID 37) (172.28.105.141, executor driver, partition 37, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:49 INFO TaskSetManager: Finished task 36.0 in stage 0.0 (TID 36) in 6640 ms on 172.28.105.141 (executor driver) (37/75)
+22/09/08 23:49:49 INFO Executor: Running task 37.0 in stage 0.0 (TID 37)
+22/09/08 23:49:49 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:4966055936+134217728
+22/09/08 23:49:55 INFO PythonRunner: Times: total = 5674, boot = -101, init = 104, finish = 5671
+22/09/08 23:49:55 INFO Executor: Finished task 37.0 in stage 0.0 (TID 37). 1690 bytes result sent to driver
+22/09/08 23:49:55 INFO TaskSetManager: Starting task 38.0 in stage 0.0 (TID 38) (172.28.105.141, executor driver, partition 38, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:49:55 INFO TaskSetManager: Finished task 37.0 in stage 0.0 (TID 37) in 5785 ms on 172.28.105.141 (executor driver) (38/75)
+22/09/08 23:49:55 INFO Executor: Running task 38.0 in stage 0.0 (TID 38)
+22/09/08 23:49:55 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5100273664+134217728
+22/09/08 23:50:00 INFO PythonRunner: Times: total = 5015, boot = -109, init = 111, finish = 5013
+22/09/08 23:50:00 INFO Executor: Finished task 38.0 in stage 0.0 (TID 38). 1690 bytes result sent to driver
+22/09/08 23:50:00 INFO TaskSetManager: Starting task 39.0 in stage 0.0 (TID 39) (172.28.105.141, executor driver, partition 39, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:00 INFO TaskSetManager: Finished task 38.0 in stage 0.0 (TID 38) in 5115 ms on 172.28.105.141 (executor driver) (39/75)
+22/09/08 23:50:00 INFO Executor: Running task 39.0 in stage 0.0 (TID 39)
+22/09/08 23:50:00 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5234491392+134217728
+22/09/08 23:50:05 INFO PythonRunner: Times: total = 4989, boot = -93, init = 94, finish = 4988
+22/09/08 23:50:05 INFO Executor: Finished task 39.0 in stage 0.0 (TID 39). 1690 bytes result sent to driver
+22/09/08 23:50:05 INFO TaskSetManager: Starting task 40.0 in stage 0.0 (TID 40) (172.28.105.141, executor driver, partition 40, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:05 INFO TaskSetManager: Finished task 39.0 in stage 0.0 (TID 39) in 5082 ms on 172.28.105.141 (executor driver) (40/75)
+22/09/08 23:50:05 INFO Executor: Running task 40.0 in stage 0.0 (TID 40)
+22/09/08 23:50:05 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5368709120+134217728
+22/09/08 23:50:10 INFO PythonRunner: Times: total = 4972, boot = -91, init = 94, finish = 4969
+22/09/08 23:50:10 INFO Executor: Finished task 40.0 in stage 0.0 (TID 40). 1690 bytes result sent to driver
+22/09/08 23:50:10 INFO TaskSetManager: Starting task 41.0 in stage 0.0 (TID 41) (172.28.105.141, executor driver, partition 41, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:10 INFO Executor: Running task 41.0 in stage 0.0 (TID 41)
+22/09/08 23:50:10 INFO TaskSetManager: Finished task 40.0 in stage 0.0 (TID 40) in 5067 ms on 172.28.105.141 (executor driver) (41/75)
+22/09/08 23:50:10 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5502926848+134217728
+22/09/08 23:50:16 INFO PythonRunner: Times: total = 5171, boot = -90, init = 92, finish = 5169
+22/09/08 23:50:16 INFO Executor: Finished task 41.0 in stage 0.0 (TID 41). 1690 bytes result sent to driver
+22/09/08 23:50:16 INFO TaskSetManager: Starting task 42.0 in stage 0.0 (TID 42) (172.28.105.141, executor driver, partition 42, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:16 INFO TaskSetManager: Finished task 41.0 in stage 0.0 (TID 41) in 5268 ms on 172.28.105.141 (executor driver) (42/75)
+22/09/08 23:50:16 INFO Executor: Running task 42.0 in stage 0.0 (TID 42)
+22/09/08 23:50:16 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5637144576+134217728
+22/09/08 23:50:21 INFO PythonRunner: Times: total = 5117, boot = -93, init = 96, finish = 5114
+22/09/08 23:50:21 INFO Executor: Finished task 42.0 in stage 0.0 (TID 42). 1690 bytes result sent to driver
+22/09/08 23:50:21 INFO TaskSetManager: Starting task 43.0 in stage 0.0 (TID 43) (172.28.105.141, executor driver, partition 43, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:21 INFO TaskSetManager: Finished task 42.0 in stage 0.0 (TID 42) in 5209 ms on 172.28.105.141 (executor driver) (43/75)
+22/09/08 23:50:21 INFO Executor: Running task 43.0 in stage 0.0 (TID 43)
+22/09/08 23:50:21 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5771362304+134217728
+22/09/08 23:50:26 INFO PythonRunner: Times: total = 4866, boot = -89, init = 92, finish = 4863
+22/09/08 23:50:26 INFO Executor: Finished task 43.0 in stage 0.0 (TID 43). 1690 bytes result sent to driver
+22/09/08 23:50:26 INFO TaskSetManager: Starting task 44.0 in stage 0.0 (TID 44) (172.28.105.141, executor driver, partition 44, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:26 INFO TaskSetManager: Finished task 43.0 in stage 0.0 (TID 43) in 4958 ms on 172.28.105.141 (executor driver) (44/75)
+22/09/08 23:50:26 INFO Executor: Running task 44.0 in stage 0.0 (TID 44)
+22/09/08 23:50:26 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:5905580032+134217728
+22/09/08 23:50:31 INFO PythonRunner: Times: total = 5272, boot = -88, init = 90, finish = 5270
+22/09/08 23:50:31 INFO Executor: Finished task 44.0 in stage 0.0 (TID 44). 1690 bytes result sent to driver
+22/09/08 23:50:31 INFO TaskSetManager: Starting task 45.0 in stage 0.0 (TID 45) (172.28.105.141, executor driver, partition 45, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:31 INFO TaskSetManager: Finished task 44.0 in stage 0.0 (TID 44) in 5362 ms on 172.28.105.141 (executor driver) (45/75)
+22/09/08 23:50:31 INFO Executor: Running task 45.0 in stage 0.0 (TID 45)
+22/09/08 23:50:31 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6039797760+134217728
+22/09/08 23:50:36 INFO PythonRunner: Times: total = 5125, boot = -87, init = 88, finish = 5124
+22/09/08 23:50:36 INFO Executor: Finished task 45.0 in stage 0.0 (TID 45). 1690 bytes result sent to driver
+22/09/08 23:50:36 INFO TaskSetManager: Starting task 46.0 in stage 0.0 (TID 46) (172.28.105.141, executor driver, partition 46, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:36 INFO TaskSetManager: Finished task 45.0 in stage 0.0 (TID 45) in 5217 ms on 172.28.105.141 (executor driver) (46/75)
+22/09/08 23:50:36 INFO Executor: Running task 46.0 in stage 0.0 (TID 46)
+22/09/08 23:50:36 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6174015488+134217728
+22/09/08 23:50:42 INFO PythonRunner: Times: total = 5043, boot = -89, init = 90, finish = 5042
+22/09/08 23:50:42 INFO Executor: Finished task 46.0 in stage 0.0 (TID 46). 1690 bytes result sent to driver
+22/09/08 23:50:42 INFO TaskSetManager: Starting task 47.0 in stage 0.0 (TID 47) (172.28.105.141, executor driver, partition 47, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:42 INFO Executor: Running task 47.0 in stage 0.0 (TID 47)
+22/09/08 23:50:42 INFO TaskSetManager: Finished task 46.0 in stage 0.0 (TID 46) in 5138 ms on 172.28.105.141 (executor driver) (47/75)
+22/09/08 23:50:42 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6308233216+134217728
+22/09/08 23:50:47 INFO PythonRunner: Times: total = 5153, boot = -91, init = 93, finish = 5151
+22/09/08 23:50:47 INFO Executor: Finished task 47.0 in stage 0.0 (TID 47). 1690 bytes result sent to driver
+22/09/08 23:50:47 INFO TaskSetManager: Starting task 48.0 in stage 0.0 (TID 48) (172.28.105.141, executor driver, partition 48, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:47 INFO TaskSetManager: Finished task 47.0 in stage 0.0 (TID 47) in 5246 ms on 172.28.105.141 (executor driver) (48/75)
+22/09/08 23:50:47 INFO Executor: Running task 48.0 in stage 0.0 (TID 48)
+22/09/08 23:50:47 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6442450944+134217728
+22/09/08 23:50:52 INFO PythonRunner: Times: total = 4993, boot = -87, init = 89, finish = 4991
+22/09/08 23:50:52 INFO Executor: Finished task 48.0 in stage 0.0 (TID 48). 1690 bytes result sent to driver
+22/09/08 23:50:52 INFO TaskSetManager: Starting task 49.0 in stage 0.0 (TID 49) (172.28.105.141, executor driver, partition 49, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:52 INFO TaskSetManager: Finished task 48.0 in stage 0.0 (TID 48) in 5084 ms on 172.28.105.141 (executor driver) (49/75)
+22/09/08 23:50:52 INFO Executor: Running task 49.0 in stage 0.0 (TID 49)
+22/09/08 23:50:52 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6576668672+134217728
+22/09/08 23:50:57 INFO PythonRunner: Times: total = 5154, boot = -86, init = 88, finish = 5152
+22/09/08 23:50:57 INFO Executor: Finished task 49.0 in stage 0.0 (TID 49). 1690 bytes result sent to driver
+22/09/08 23:50:57 INFO TaskSetManager: Starting task 50.0 in stage 0.0 (TID 50) (172.28.105.141, executor driver, partition 50, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:50:57 INFO TaskSetManager: Finished task 49.0 in stage 0.0 (TID 49) in 5251 ms on 172.28.105.141 (executor driver) (50/75)
+22/09/08 23:50:57 INFO Executor: Running task 50.0 in stage 0.0 (TID 50)
+22/09/08 23:50:57 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6710886400+134217728
+22/09/08 23:51:02 INFO PythonRunner: Times: total = 5019, boot = -93, init = 95, finish = 5017
+22/09/08 23:51:02 INFO Executor: Finished task 50.0 in stage 0.0 (TID 50). 1690 bytes result sent to driver
+22/09/08 23:51:02 INFO TaskSetManager: Starting task 51.0 in stage 0.0 (TID 51) (172.28.105.141, executor driver, partition 51, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:02 INFO TaskSetManager: Finished task 50.0 in stage 0.0 (TID 50) in 5107 ms on 172.28.105.141 (executor driver) (51/75)
+22/09/08 23:51:02 INFO Executor: Running task 51.0 in stage 0.0 (TID 51)
+22/09/08 23:51:02 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6845104128+134217728
+22/09/08 23:51:07 INFO PythonRunner: Times: total = 4932, boot = -85, init = 86, finish = 4931
+22/09/08 23:51:07 INFO Executor: Finished task 51.0 in stage 0.0 (TID 51). 1690 bytes result sent to driver
+22/09/08 23:51:07 INFO TaskSetManager: Starting task 52.0 in stage 0.0 (TID 52) (172.28.105.141, executor driver, partition 52, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:07 INFO TaskSetManager: Finished task 51.0 in stage 0.0 (TID 51) in 5022 ms on 172.28.105.141 (executor driver) (52/75)
+22/09/08 23:51:07 INFO Executor: Running task 52.0 in stage 0.0 (TID 52)
+22/09/08 23:51:07 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:6979321856+134217728
+22/09/08 23:51:12 INFO PythonRunner: Times: total = 5020, boot = -86, init = 87, finish = 5019
+22/09/08 23:51:12 INFO Executor: Finished task 52.0 in stage 0.0 (TID 52). 1690 bytes result sent to driver
+22/09/08 23:51:12 INFO TaskSetManager: Starting task 53.0 in stage 0.0 (TID 53) (172.28.105.141, executor driver, partition 53, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:12 INFO TaskSetManager: Finished task 52.0 in stage 0.0 (TID 52) in 5108 ms on 172.28.105.141 (executor driver) (53/75)
+22/09/08 23:51:12 INFO Executor: Running task 53.0 in stage 0.0 (TID 53)
+22/09/08 23:51:12 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7113539584+134217728
+22/09/08 23:51:17 INFO PythonRunner: Times: total = 4855, boot = -83, init = 85, finish = 4853
+22/09/08 23:51:17 INFO Executor: Finished task 53.0 in stage 0.0 (TID 53). 1690 bytes result sent to driver
+22/09/08 23:51:17 INFO TaskSetManager: Starting task 54.0 in stage 0.0 (TID 54) (172.28.105.141, executor driver, partition 54, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:17 INFO TaskSetManager: Finished task 53.0 in stage 0.0 (TID 53) in 4946 ms on 172.28.105.141 (executor driver) (54/75)
+22/09/08 23:51:17 INFO Executor: Running task 54.0 in stage 0.0 (TID 54)
+22/09/08 23:51:17 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7247757312+134217728
+22/09/08 23:51:22 INFO PythonRunner: Times: total = 4874, boot = -89, init = 90, finish = 4873
+22/09/08 23:51:22 INFO Executor: Finished task 54.0 in stage 0.0 (TID 54). 1690 bytes result sent to driver
+22/09/08 23:51:22 INFO TaskSetManager: Starting task 55.0 in stage 0.0 (TID 55) (172.28.105.141, executor driver, partition 55, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:22 INFO TaskSetManager: Finished task 54.0 in stage 0.0 (TID 54) in 4964 ms on 172.28.105.141 (executor driver) (55/75)
+22/09/08 23:51:22 INFO Executor: Running task 55.0 in stage 0.0 (TID 55)
+22/09/08 23:51:22 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7381975040+134217728
+22/09/08 23:51:27 INFO PythonRunner: Times: total = 4874, boot = -84, init = 86, finish = 4872
+22/09/08 23:51:27 INFO Executor: Finished task 55.0 in stage 0.0 (TID 55). 1690 bytes result sent to driver
+22/09/08 23:51:27 INFO TaskSetManager: Starting task 56.0 in stage 0.0 (TID 56) (172.28.105.141, executor driver, partition 56, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:27 INFO TaskSetManager: Finished task 55.0 in stage 0.0 (TID 55) in 4964 ms on 172.28.105.141 (executor driver) (56/75)
+22/09/08 23:51:27 INFO Executor: Running task 56.0 in stage 0.0 (TID 56)
+22/09/08 23:51:27 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7516192768+134217728
+22/09/08 23:51:32 INFO PythonRunner: Times: total = 4851, boot = -84, init = 86, finish = 4849
+22/09/08 23:51:32 INFO Executor: Finished task 56.0 in stage 0.0 (TID 56). 1690 bytes result sent to driver
+22/09/08 23:51:32 INFO TaskSetManager: Starting task 57.0 in stage 0.0 (TID 57) (172.28.105.141, executor driver, partition 57, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:32 INFO TaskSetManager: Finished task 56.0 in stage 0.0 (TID 56) in 4940 ms on 172.28.105.141 (executor driver) (57/75)
+22/09/08 23:51:32 INFO Executor: Running task 57.0 in stage 0.0 (TID 57)
+22/09/08 23:51:32 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7650410496+134217728
+22/09/08 23:51:37 INFO PythonRunner: Times: total = 4900, boot = -86, init = 88, finish = 4898
+22/09/08 23:51:37 INFO Executor: Finished task 57.0 in stage 0.0 (TID 57). 1690 bytes result sent to driver
+22/09/08 23:51:37 INFO TaskSetManager: Starting task 58.0 in stage 0.0 (TID 58) (172.28.105.141, executor driver, partition 58, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:37 INFO TaskSetManager: Finished task 57.0 in stage 0.0 (TID 57) in 4991 ms on 172.28.105.141 (executor driver) (58/75)
+22/09/08 23:51:37 INFO Executor: Running task 58.0 in stage 0.0 (TID 58)
+22/09/08 23:51:37 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7784628224+134217728
+22/09/08 23:51:42 INFO PythonRunner: Times: total = 4960, boot = -86, init = 88, finish = 4958
+22/09/08 23:51:42 INFO Executor: Finished task 58.0 in stage 0.0 (TID 58). 1690 bytes result sent to driver
+22/09/08 23:51:42 INFO TaskSetManager: Starting task 59.0 in stage 0.0 (TID 59) (172.28.105.141, executor driver, partition 59, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:42 INFO TaskSetManager: Finished task 58.0 in stage 0.0 (TID 58) in 5051 ms on 172.28.105.141 (executor driver) (59/75)
+22/09/08 23:51:42 INFO Executor: Running task 59.0 in stage 0.0 (TID 59)
+22/09/08 23:51:42 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:7918845952+134217728
+22/09/08 23:51:47 INFO PythonRunner: Times: total = 4978, boot = -89, init = 91, finish = 4976
+22/09/08 23:51:47 INFO Executor: Finished task 59.0 in stage 0.0 (TID 59). 1690 bytes result sent to driver
+22/09/08 23:51:47 INFO TaskSetManager: Starting task 60.0 in stage 0.0 (TID 60) (172.28.105.141, executor driver, partition 60, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:47 INFO TaskSetManager: Finished task 59.0 in stage 0.0 (TID 59) in 5072 ms on 172.28.105.141 (executor driver) (60/75)
+22/09/08 23:51:47 INFO Executor: Running task 60.0 in stage 0.0 (TID 60)
+22/09/08 23:51:47 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8053063680+134217728
+22/09/08 23:51:52 INFO PythonRunner: Times: total = 4860, boot = -86, init = 89, finish = 4857
+22/09/08 23:51:52 INFO Executor: Finished task 60.0 in stage 0.0 (TID 60). 1690 bytes result sent to driver
+22/09/08 23:51:52 INFO TaskSetManager: Starting task 61.0 in stage 0.0 (TID 61) (172.28.105.141, executor driver, partition 61, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:52 INFO Executor: Running task 61.0 in stage 0.0 (TID 61)
+22/09/08 23:51:52 INFO TaskSetManager: Finished task 60.0 in stage 0.0 (TID 60) in 4951 ms on 172.28.105.141 (executor driver) (61/75)
+22/09/08 23:51:52 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8187281408+134217728
+22/09/08 23:51:57 INFO PythonRunner: Times: total = 4829, boot = -89, init = 90, finish = 4828
+22/09/08 23:51:57 INFO Executor: Finished task 61.0 in stage 0.0 (TID 61). 1690 bytes result sent to driver
+22/09/08 23:51:57 INFO TaskSetManager: Starting task 62.0 in stage 0.0 (TID 62) (172.28.105.141, executor driver, partition 62, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:51:57 INFO Executor: Running task 62.0 in stage 0.0 (TID 62)
+22/09/08 23:51:57 INFO TaskSetManager: Finished task 61.0 in stage 0.0 (TID 61) in 4926 ms on 172.28.105.141 (executor driver) (62/75)
+22/09/08 23:51:57 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8321499136+134217728
+22/09/08 23:52:02 INFO PythonRunner: Times: total = 4840, boot = -95, init = 96, finish = 4839
+22/09/08 23:52:02 INFO Executor: Finished task 62.0 in stage 0.0 (TID 62). 1690 bytes result sent to driver
+22/09/08 23:52:02 INFO TaskSetManager: Starting task 63.0 in stage 0.0 (TID 63) (172.28.105.141, executor driver, partition 63, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:02 INFO TaskSetManager: Finished task 62.0 in stage 0.0 (TID 62) in 4935 ms on 172.28.105.141 (executor driver) (63/75)
+22/09/08 23:52:02 INFO Executor: Running task 63.0 in stage 0.0 (TID 63)
+22/09/08 23:52:02 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8455716864+134217728
+22/09/08 23:52:07 INFO PythonRunner: Times: total = 4900, boot = -87, init = 89, finish = 4898
+22/09/08 23:52:07 INFO Executor: Finished task 63.0 in stage 0.0 (TID 63). 1690 bytes result sent to driver
+22/09/08 23:52:07 INFO TaskSetManager: Starting task 64.0 in stage 0.0 (TID 64) (172.28.105.141, executor driver, partition 64, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:07 INFO TaskSetManager: Finished task 63.0 in stage 0.0 (TID 63) in 4991 ms on 172.28.105.141 (executor driver) (64/75)
+22/09/08 23:52:07 INFO Executor: Running task 64.0 in stage 0.0 (TID 64)
+22/09/08 23:52:07 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8589934592+134217728
+22/09/08 23:52:12 INFO PythonRunner: Times: total = 5252, boot = -89, init = 90, finish = 5251
+22/09/08 23:52:13 INFO Executor: Finished task 64.0 in stage 0.0 (TID 64). 1690 bytes result sent to driver
+22/09/08 23:52:13 INFO TaskSetManager: Starting task 65.0 in stage 0.0 (TID 65) (172.28.105.141, executor driver, partition 65, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:13 INFO TaskSetManager: Finished task 64.0 in stage 0.0 (TID 64) in 5344 ms on 172.28.105.141 (executor driver) (65/75)
+22/09/08 23:52:13 INFO Executor: Running task 65.0 in stage 0.0 (TID 65)
+22/09/08 23:52:13 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8724152320+134217728
+22/09/08 23:52:17 INFO PythonRunner: Times: total = 4872, boot = -86, init = 88, finish = 4870
+22/09/08 23:52:17 INFO Executor: Finished task 65.0 in stage 0.0 (TID 65). 1690 bytes result sent to driver
+22/09/08 23:52:17 INFO TaskSetManager: Starting task 66.0 in stage 0.0 (TID 66) (172.28.105.141, executor driver, partition 66, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:17 INFO TaskSetManager: Finished task 65.0 in stage 0.0 (TID 65) in 4963 ms on 172.28.105.141 (executor driver) (66/75)
+22/09/08 23:52:17 INFO Executor: Running task 66.0 in stage 0.0 (TID 66)
+22/09/08 23:52:17 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8858370048+134217728
+22/09/08 23:52:22 INFO PythonRunner: Times: total = 4925, boot = -97, init = 99, finish = 4923
+22/09/08 23:52:22 INFO Executor: Finished task 66.0 in stage 0.0 (TID 66). 1690 bytes result sent to driver
+22/09/08 23:52:22 INFO TaskSetManager: Starting task 67.0 in stage 0.0 (TID 67) (172.28.105.141, executor driver, partition 67, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:22 INFO TaskSetManager: Finished task 66.0 in stage 0.0 (TID 66) in 5025 ms on 172.28.105.141 (executor driver) (67/75)
+22/09/08 23:52:22 INFO Executor: Running task 67.0 in stage 0.0 (TID 67)
+22/09/08 23:52:22 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:8992587776+134217728
+22/09/08 23:52:28 INFO PythonRunner: Times: total = 5099, boot = -90, init = 92, finish = 5097
+22/09/08 23:52:28 INFO Executor: Finished task 67.0 in stage 0.0 (TID 67). 1690 bytes result sent to driver
+22/09/08 23:52:28 INFO TaskSetManager: Starting task 68.0 in stage 0.0 (TID 68) (172.28.105.141, executor driver, partition 68, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:28 INFO TaskSetManager: Finished task 67.0 in stage 0.0 (TID 67) in 5193 ms on 172.28.105.141 (executor driver) (68/75)
+22/09/08 23:52:28 INFO Executor: Running task 68.0 in stage 0.0 (TID 68)
+22/09/08 23:52:28 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9126805504+134217728
+22/09/08 23:52:33 INFO PythonRunner: Times: total = 5197, boot = -89, init = 91, finish = 5195
+22/09/08 23:52:33 INFO Executor: Finished task 68.0 in stage 0.0 (TID 68). 1690 bytes result sent to driver
+22/09/08 23:52:33 INFO TaskSetManager: Starting task 69.0 in stage 0.0 (TID 69) (172.28.105.141, executor driver, partition 69, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:33 INFO TaskSetManager: Finished task 68.0 in stage 0.0 (TID 68) in 5288 ms on 172.28.105.141 (executor driver) (69/75)
+22/09/08 23:52:33 INFO Executor: Running task 69.0 in stage 0.0 (TID 69)
+22/09/08 23:52:33 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9261023232+134217728
+22/09/08 23:52:38 INFO PythonRunner: Times: total = 4897, boot = -86, init = 87, finish = 4896
+22/09/08 23:52:38 INFO Executor: Finished task 69.0 in stage 0.0 (TID 69). 1690 bytes result sent to driver
+22/09/08 23:52:38 INFO TaskSetManager: Starting task 70.0 in stage 0.0 (TID 70) (172.28.105.141, executor driver, partition 70, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:38 INFO Executor: Running task 70.0 in stage 0.0 (TID 70)
+22/09/08 23:52:38 INFO TaskSetManager: Finished task 69.0 in stage 0.0 (TID 69) in 4985 ms on 172.28.105.141 (executor driver) (70/75)
+22/09/08 23:52:38 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9395240960+134217728
+22/09/08 23:52:43 INFO PythonRunner: Times: total = 4833, boot = -84, init = 85, finish = 4832
+22/09/08 23:52:43 INFO Executor: Finished task 70.0 in stage 0.0 (TID 70). 1690 bytes result sent to driver
+22/09/08 23:52:43 INFO TaskSetManager: Starting task 71.0 in stage 0.0 (TID 71) (172.28.105.141, executor driver, partition 71, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:43 INFO TaskSetManager: Finished task 70.0 in stage 0.0 (TID 70) in 4922 ms on 172.28.105.141 (executor driver) (71/75)
+22/09/08 23:52:43 INFO Executor: Running task 71.0 in stage 0.0 (TID 71)
+22/09/08 23:52:43 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9529458688+134217728
+22/09/08 23:52:48 INFO PythonRunner: Times: total = 5107, boot = -86, init = 87, finish = 5106
+22/09/08 23:52:48 INFO Executor: Finished task 71.0 in stage 0.0 (TID 71). 1690 bytes result sent to driver
+22/09/08 23:52:48 INFO TaskSetManager: Starting task 72.0 in stage 0.0 (TID 72) (172.28.105.141, executor driver, partition 72, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:48 INFO TaskSetManager: Finished task 71.0 in stage 0.0 (TID 71) in 5199 ms on 172.28.105.141 (executor driver) (72/75)
+22/09/08 23:52:48 INFO Executor: Running task 72.0 in stage 0.0 (TID 72)
+22/09/08 23:52:48 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9663676416+134217728
+22/09/08 23:52:53 INFO PythonRunner: Times: total = 4935, boot = -88, init = 90, finish = 4933
+22/09/08 23:52:53 INFO Executor: Finished task 72.0 in stage 0.0 (TID 72). 1690 bytes result sent to driver
+22/09/08 23:52:53 INFO TaskSetManager: Starting task 73.0 in stage 0.0 (TID 73) (172.28.105.141, executor driver, partition 73, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:53 INFO TaskSetManager: Finished task 72.0 in stage 0.0 (TID 72) in 5029 ms on 172.28.105.141 (executor driver) (73/75)
+22/09/08 23:52:53 INFO Executor: Running task 73.0 in stage 0.0 (TID 73)
+22/09/08 23:52:53 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9797894144+134217728
+22/09/08 23:52:58 INFO PythonRunner: Times: total = 4929, boot = -91, init = 92, finish = 4928
+22/09/08 23:52:58 INFO Executor: Finished task 73.0 in stage 0.0 (TID 73). 1690 bytes result sent to driver
+22/09/08 23:52:58 INFO TaskSetManager: Starting task 74.0 in stage 0.0 (TID 74) (172.28.105.141, executor driver, partition 74, ANY, 4497 bytes) taskResourceAssignments Map()
+22/09/08 23:52:58 INFO TaskSetManager: Finished task 73.0 in stage 0.0 (TID 73) in 5023 ms on 172.28.105.141 (executor driver) (74/75)
+22/09/08 23:52:58 INFO Executor: Running task 74.0 in stage 0.0 (TID 74)
+22/09/08 23:52:58 INFO HadoopRDD: Input split: hdfs://localhost:9000/user/ubuntu/input:9932111872+67888128
+22/09/08 23:53:01 INFO PythonRunner: Times: total = 2365, boot = -89, init = 90, finish = 2364
+22/09/08 23:53:01 INFO Executor: Finished task 74.0 in stage 0.0 (TID 74). 1690 bytes result sent to driver
+22/09/08 23:53:01 INFO TaskSetManager: Finished task 74.0 in stage 0.0 (TID 74) in 2418 ms on 172.28.105.141 (executor driver) (75/75)
+22/09/08 23:53:01 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+22/09/08 23:53:01 INFO DAGScheduler: ShuffleMapStage 0 (reduceByKey at /home/ubuntu/Fall2022/CS6220/HW1/Spark/wordcount.py:14) finished in 440.211 s
+22/09/08 23:53:01 INFO DAGScheduler: looking for newly runnable stages
+22/09/08 23:53:01 INFO DAGScheduler: running: Set()
+22/09/08 23:53:01 INFO DAGScheduler: waiting: Set(ResultStage 1)
+22/09/08 23:53:01 INFO DAGScheduler: failed: Set()
+22/09/08 23:53:01 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[8] at saveAsTextFile at NativeMethodAccessorImpl.java:0), which has no missing parents
+22/09/08 23:53:01 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 157.1 KiB, free 433.9 MiB)
+22/09/08 23:53:01 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 59.2 KiB, free 433.8 MiB)
+22/09/08 23:53:01 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on localhost:35905 (size: 59.2 KiB, free: 434.3 MiB)
+22/09/08 23:53:01 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1513
+22/09/08 23:53:01 INFO DAGScheduler: Submitting 75 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at saveAsTextFile at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+22/09/08 23:53:01 INFO TaskSchedulerImpl: Adding task set 1.0 with 75 tasks resource profile 0
+22/09/08 23:53:01 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 75) (172.28.105.141, executor driver, partition 0, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:01 INFO Executor: Running task 0.0 in stage 1.0 (TID 75)
+22/09/08 23:53:01 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:01 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 31 ms
+22/09/08 23:53:01 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:01 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:01 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:04 INFO PythonRunner: Times: total = 2948, boot = -206, init = 231, finish = 2923
+22/09/08 23:53:04 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000000_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000000
+22/09/08 23:53:04 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000000_0: Committed. Elapsed time: 7 ms.
+22/09/08 23:53:04 INFO Executor: Finished task 0.0 in stage 1.0 (TID 75). 1960 bytes result sent to driver
+22/09/08 23:53:04 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 76) (172.28.105.141, executor driver, partition 1, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:04 INFO Executor: Running task 1.0 in stage 1.0 (TID 76)
+22/09/08 23:53:04 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 75) in 3099 ms on 172.28.105.141 (executor driver) (1/75)
+22/09/08 23:53:04 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:04 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:04 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:04 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:04 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:07 INFO PythonRunner: Times: total = 2978, boot = -35, init = 37, finish = 2976
+22/09/08 23:53:07 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000001_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000001
+22/09/08 23:53:07 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000001_0: Committed. Elapsed time: 13 ms.
+22/09/08 23:53:07 INFO Executor: Finished task 1.0 in stage 1.0 (TID 76). 1960 bytes result sent to driver
+22/09/08 23:53:07 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 77) (172.28.105.141, executor driver, partition 2, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:07 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 76) in 3021 ms on 172.28.105.141 (executor driver) (2/75)
+22/09/08 23:53:07 INFO Executor: Running task 2.0 in stage 1.0 (TID 77)
+22/09/08 23:53:07 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:07 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:07 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:07 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:07 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:10 INFO PythonRunner: Times: total = 2890, boot = -35, init = 37, finish = 2888
+22/09/08 23:53:10 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000002_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000002
+22/09/08 23:53:10 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000002_0: Committed. Elapsed time: 5 ms.
+22/09/08 23:53:10 INFO Executor: Finished task 2.0 in stage 1.0 (TID 77). 1960 bytes result sent to driver
+22/09/08 23:53:10 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 78) (172.28.105.141, executor driver, partition 3, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:10 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 77) in 2916 ms on 172.28.105.141 (executor driver) (3/75)
+22/09/08 23:53:10 INFO Executor: Running task 3.0 in stage 1.0 (TID 78)
+22/09/08 23:53:10 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:10 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:10 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:10 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:10 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:12 INFO PythonRunner: Times: total = 2803, boot = -23, init = 25, finish = 2801
+22/09/08 23:53:12 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000003_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000003
+22/09/08 23:53:12 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000003_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:12 INFO Executor: Finished task 3.0 in stage 1.0 (TID 78). 1960 bytes result sent to driver
+22/09/08 23:53:12 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 79) (172.28.105.141, executor driver, partition 4, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:12 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 78) in 2860 ms on 172.28.105.141 (executor driver) (4/75)
+22/09/08 23:53:12 INFO Executor: Running task 4.0 in stage 1.0 (TID 79)
+22/09/08 23:53:12 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:12 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:12 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:15 INFO PythonRunner: Times: total = 2839, boot = -51, init = 52, finish = 2838
+22/09/08 23:53:15 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000004_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000004
+22/09/08 23:53:15 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000004_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:15 INFO Executor: Finished task 4.0 in stage 1.0 (TID 79). 1960 bytes result sent to driver
+22/09/08 23:53:15 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 80) (172.28.105.141, executor driver, partition 5, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:15 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 79) in 2863 ms on 172.28.105.141 (executor driver) (5/75)
+22/09/08 23:53:15 INFO Executor: Running task 5.0 in stage 1.0 (TID 80)
+22/09/08 23:53:15 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:15 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:15 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:15 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:18 INFO PythonRunner: Times: total = 3044, boot = -19, init = 21, finish = 3042
+22/09/08 23:53:18 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000005_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000005
+22/09/08 23:53:18 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000005_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:18 INFO Executor: Finished task 5.0 in stage 1.0 (TID 80). 1960 bytes result sent to driver
+22/09/08 23:53:18 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 81) (172.28.105.141, executor driver, partition 6, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:18 INFO Executor: Running task 6.0 in stage 1.0 (TID 81)
+22/09/08 23:53:18 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 80) in 3068 ms on 172.28.105.141 (executor driver) (6/75)
+22/09/08 23:53:18 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:18 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:18 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:18 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:18 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:21 INFO PythonRunner: Times: total = 2916, boot = -21, init = 22, finish = 2915
+22/09/08 23:53:21 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000006_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000006
+22/09/08 23:53:21 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000006_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:53:21 INFO Executor: Finished task 6.0 in stage 1.0 (TID 81). 1960 bytes result sent to driver
+22/09/08 23:53:21 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 82) (172.28.105.141, executor driver, partition 7, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:21 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 81) in 2956 ms on 172.28.105.141 (executor driver) (7/75)
+22/09/08 23:53:21 INFO Executor: Running task 7.0 in stage 1.0 (TID 82)
+22/09/08 23:53:21 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:21 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:21 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:21 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:24 INFO PythonRunner: Times: total = 2889, boot = -34, init = 35, finish = 2888
+22/09/08 23:53:24 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000007_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000007
+22/09/08 23:53:24 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000007_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:24 INFO Executor: Finished task 7.0 in stage 1.0 (TID 82). 1960 bytes result sent to driver
+22/09/08 23:53:24 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 83) (172.28.105.141, executor driver, partition 8, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:24 INFO Executor: Running task 8.0 in stage 1.0 (TID 83)
+22/09/08 23:53:24 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 82) in 2910 ms on 172.28.105.141 (executor driver) (8/75)
+22/09/08 23:53:24 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:24 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:53:24 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:24 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:24 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:27 INFO PythonRunner: Times: total = 2862, boot = -17, init = 18, finish = 2861
+22/09/08 23:53:27 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000008_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000008
+22/09/08 23:53:27 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000008_0: Committed. Elapsed time: 19 ms.
+22/09/08 23:53:27 INFO Executor: Finished task 8.0 in stage 1.0 (TID 83). 1960 bytes result sent to driver
+22/09/08 23:53:27 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 84) (172.28.105.141, executor driver, partition 9, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:27 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 83) in 2909 ms on 172.28.105.141 (executor driver) (9/75)
+22/09/08 23:53:27 INFO Executor: Running task 9.0 in stage 1.0 (TID 84)
+22/09/08 23:53:27 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:27 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:27 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:30 INFO PythonRunner: Times: total = 2954, boot = -42, init = 44, finish = 2952
+22/09/08 23:53:30 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000009_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000009
+22/09/08 23:53:30 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000009_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:30 INFO Executor: Finished task 9.0 in stage 1.0 (TID 84). 1960 bytes result sent to driver
+22/09/08 23:53:30 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 85) (172.28.105.141, executor driver, partition 10, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:30 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 84) in 2975 ms on 172.28.105.141 (executor driver) (10/75)
+22/09/08 23:53:30 INFO Executor: Running task 10.0 in stage 1.0 (TID 85)
+22/09/08 23:53:30 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:30 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:30 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:30 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:33 INFO PythonRunner: Times: total = 2806, boot = -16, init = 17, finish = 2805
+22/09/08 23:53:33 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000010_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000010
+22/09/08 23:53:33 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000010_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:33 INFO Executor: Finished task 10.0 in stage 1.0 (TID 85). 1960 bytes result sent to driver
+22/09/08 23:53:33 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 86) (172.28.105.141, executor driver, partition 11, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:33 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 85) in 2838 ms on 172.28.105.141 (executor driver) (11/75)
+22/09/08 23:53:33 INFO Executor: Running task 11.0 in stage 1.0 (TID 86)
+22/09/08 23:53:33 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:33 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:33 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:33 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:33 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:36 INFO PythonRunner: Times: total = 2948, boot = -28, init = 29, finish = 2947
+22/09/08 23:53:36 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000011_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000011
+22/09/08 23:53:36 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000011_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:36 INFO Executor: Finished task 11.0 in stage 1.0 (TID 86). 1960 bytes result sent to driver
+22/09/08 23:53:36 INFO TaskSetManager: Starting task 12.0 in stage 1.0 (TID 87) (172.28.105.141, executor driver, partition 12, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:36 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 86) in 2966 ms on 172.28.105.141 (executor driver) (12/75)
+22/09/08 23:53:36 INFO Executor: Running task 12.0 in stage 1.0 (TID 87)
+22/09/08 23:53:36 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:36 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:36 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:39 INFO PythonRunner: Times: total = 2811, boot = -14, init = 16, finish = 2809
+22/09/08 23:53:39 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000012_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000012
+22/09/08 23:53:39 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000012_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:39 INFO Executor: Finished task 12.0 in stage 1.0 (TID 87). 1960 bytes result sent to driver
+22/09/08 23:53:39 INFO TaskSetManager: Starting task 13.0 in stage 1.0 (TID 88) (172.28.105.141, executor driver, partition 13, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:39 INFO TaskSetManager: Finished task 12.0 in stage 1.0 (TID 87) in 3253 ms on 172.28.105.141 (executor driver) (13/75)
+22/09/08 23:53:39 INFO Executor: Running task 13.0 in stage 1.0 (TID 88)
+22/09/08 23:53:39 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:39 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:39 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:39 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:39 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:42 INFO PythonRunner: Times: total = 3036, boot = -440, init = 444, finish = 3032
+22/09/08 23:53:42 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000013_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000013
+22/09/08 23:53:42 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000013_0: Committed. Elapsed time: 12 ms.
+22/09/08 23:53:42 INFO Executor: Finished task 13.0 in stage 1.0 (TID 88). 1960 bytes result sent to driver
+22/09/08 23:53:42 INFO TaskSetManager: Starting task 14.0 in stage 1.0 (TID 89) (172.28.105.141, executor driver, partition 14, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:42 INFO TaskSetManager: Finished task 13.0 in stage 1.0 (TID 88) in 3092 ms on 172.28.105.141 (executor driver) (14/75)
+22/09/08 23:53:42 INFO Executor: Running task 14.0 in stage 1.0 (TID 89)
+22/09/08 23:53:42 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:42 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:42 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:42 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:42 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:45 INFO PythonRunner: Times: total = 2865, boot = -51, init = 52, finish = 2864
+22/09/08 23:53:45 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000014_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000014
+22/09/08 23:53:45 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000014_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:45 INFO Executor: Finished task 14.0 in stage 1.0 (TID 89). 1960 bytes result sent to driver
+22/09/08 23:53:45 INFO TaskSetManager: Starting task 15.0 in stage 1.0 (TID 90) (172.28.105.141, executor driver, partition 15, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:45 INFO TaskSetManager: Finished task 14.0 in stage 1.0 (TID 89) in 2889 ms on 172.28.105.141 (executor driver) (15/75)
+22/09/08 23:53:45 INFO Executor: Running task 15.0 in stage 1.0 (TID 90)
+22/09/08 23:53:45 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:45 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:45 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:45 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:45 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:48 INFO PythonRunner: Times: total = 2816, boot = -17, init = 19, finish = 2814
+22/09/08 23:53:48 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000015_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000015
+22/09/08 23:53:48 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000015_0: Committed. Elapsed time: 11 ms.
+22/09/08 23:53:48 INFO Executor: Finished task 15.0 in stage 1.0 (TID 90). 1960 bytes result sent to driver
+22/09/08 23:53:48 INFO TaskSetManager: Starting task 16.0 in stage 1.0 (TID 91) (172.28.105.141, executor driver, partition 16, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:48 INFO Executor: Running task 16.0 in stage 1.0 (TID 91)
+22/09/08 23:53:48 INFO TaskSetManager: Finished task 15.0 in stage 1.0 (TID 90) in 2868 ms on 172.28.105.141 (executor driver) (16/75)
+22/09/08 23:53:48 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:48 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:48 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:48 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:48 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:51 INFO PythonRunner: Times: total = 3032, boot = -47, init = 48, finish = 3031
+22/09/08 23:53:51 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000016_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000016
+22/09/08 23:53:51 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000016_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:53:51 INFO Executor: Finished task 16.0 in stage 1.0 (TID 91). 1960 bytes result sent to driver
+22/09/08 23:53:51 INFO TaskSetManager: Starting task 17.0 in stage 1.0 (TID 92) (172.28.105.141, executor driver, partition 17, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:51 INFO Executor: Running task 17.0 in stage 1.0 (TID 92)
+22/09/08 23:53:51 INFO TaskSetManager: Finished task 16.0 in stage 1.0 (TID 91) in 3051 ms on 172.28.105.141 (executor driver) (17/75)
+22/09/08 23:53:51 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:51 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:51 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:54 INFO PythonRunner: Times: total = 2800, boot = -15, init = 17, finish = 2798
+22/09/08 23:53:54 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000017_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000017
+22/09/08 23:53:54 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000017_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:53:54 INFO Executor: Finished task 17.0 in stage 1.0 (TID 92). 1960 bytes result sent to driver
+22/09/08 23:53:54 INFO TaskSetManager: Starting task 18.0 in stage 1.0 (TID 93) (172.28.105.141, executor driver, partition 18, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:54 INFO TaskSetManager: Finished task 17.0 in stage 1.0 (TID 92) in 2819 ms on 172.28.105.141 (executor driver) (18/75)
+22/09/08 23:53:54 INFO Executor: Running task 18.0 in stage 1.0 (TID 93)
+22/09/08 23:53:54 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:54 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:54 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:53:57 INFO PythonRunner: Times: total = 2815, boot = -15, init = 16, finish = 2814
+22/09/08 23:53:57 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000018_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000018
+22/09/08 23:53:57 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000018_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:53:57 INFO Executor: Finished task 18.0 in stage 1.0 (TID 93). 1960 bytes result sent to driver
+22/09/08 23:53:57 INFO TaskSetManager: Starting task 19.0 in stage 1.0 (TID 94) (172.28.105.141, executor driver, partition 19, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:53:57 INFO Executor: Running task 19.0 in stage 1.0 (TID 94)
+22/09/08 23:53:57 INFO TaskSetManager: Finished task 18.0 in stage 1.0 (TID 93) in 2845 ms on 172.28.105.141 (executor driver) (19/75)
+22/09/08 23:53:57 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:53:57 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:53:57 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:53:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:53:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:00 INFO PythonRunner: Times: total = 2795, boot = -27, init = 28, finish = 2794
+22/09/08 23:54:00 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000019_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000019
+22/09/08 23:54:00 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000019_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:00 INFO Executor: Finished task 19.0 in stage 1.0 (TID 94). 1960 bytes result sent to driver
+22/09/08 23:54:00 INFO TaskSetManager: Starting task 20.0 in stage 1.0 (TID 95) (172.28.105.141, executor driver, partition 20, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:00 INFO Executor: Running task 20.0 in stage 1.0 (TID 95)
+22/09/08 23:54:00 INFO TaskSetManager: Finished task 19.0 in stage 1.0 (TID 94) in 2815 ms on 172.28.105.141 (executor driver) (20/75)
+22/09/08 23:54:00 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:00 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:00 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:00 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:00 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:03 INFO PythonRunner: Times: total = 2966, boot = -17, init = 18, finish = 2965
+22/09/08 23:54:03 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000020_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000020
+22/09/08 23:54:03 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000020_0: Committed. Elapsed time: 13 ms.
+22/09/08 23:54:03 INFO Executor: Finished task 20.0 in stage 1.0 (TID 95). 1960 bytes result sent to driver
+22/09/08 23:54:03 INFO TaskSetManager: Starting task 21.0 in stage 1.0 (TID 96) (172.28.105.141, executor driver, partition 21, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:03 INFO TaskSetManager: Finished task 20.0 in stage 1.0 (TID 95) in 3005 ms on 172.28.105.141 (executor driver) (21/75)
+22/09/08 23:54:03 INFO Executor: Running task 21.0 in stage 1.0 (TID 96)
+22/09/08 23:54:03 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:03 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:03 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:03 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:03 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:06 INFO PythonRunner: Times: total = 2955, boot = -33, init = 34, finish = 2954
+22/09/08 23:54:06 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000021_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000021
+22/09/08 23:54:06 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000021_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:54:06 INFO Executor: Finished task 21.0 in stage 1.0 (TID 96). 1960 bytes result sent to driver
+22/09/08 23:54:06 INFO TaskSetManager: Starting task 22.0 in stage 1.0 (TID 97) (172.28.105.141, executor driver, partition 22, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:06 INFO TaskSetManager: Finished task 21.0 in stage 1.0 (TID 96) in 2990 ms on 172.28.105.141 (executor driver) (22/75)
+22/09/08 23:54:06 INFO Executor: Running task 22.0 in stage 1.0 (TID 97)
+22/09/08 23:54:06 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:06 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:06 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:06 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:06 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:09 INFO PythonRunner: Times: total = 2972, boot = -32, init = 33, finish = 2971
+22/09/08 23:54:09 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000022_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000022
+22/09/08 23:54:09 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000022_0: Committed. Elapsed time: 10 ms.
+22/09/08 23:54:09 INFO Executor: Finished task 22.0 in stage 1.0 (TID 97). 1960 bytes result sent to driver
+22/09/08 23:54:09 INFO TaskSetManager: Starting task 23.0 in stage 1.0 (TID 98) (172.28.105.141, executor driver, partition 23, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:09 INFO TaskSetManager: Finished task 22.0 in stage 1.0 (TID 97) in 3005 ms on 172.28.105.141 (executor driver) (23/75)
+22/09/08 23:54:09 INFO Executor: Running task 23.0 in stage 1.0 (TID 98)
+22/09/08 23:54:09 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:09 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:09 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:09 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:09 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:12 INFO PythonRunner: Times: total = 3097, boot = -28, init = 30, finish = 3095
+22/09/08 23:54:12 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000023_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000023
+22/09/08 23:54:12 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000023_0: Committed. Elapsed time: 8 ms.
+22/09/08 23:54:12 INFO Executor: Finished task 23.0 in stage 1.0 (TID 98). 1960 bytes result sent to driver
+22/09/08 23:54:12 INFO TaskSetManager: Starting task 24.0 in stage 1.0 (TID 99) (172.28.105.141, executor driver, partition 24, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:12 INFO TaskSetManager: Finished task 23.0 in stage 1.0 (TID 98) in 3123 ms on 172.28.105.141 (executor driver) (24/75)
+22/09/08 23:54:12 INFO Executor: Running task 24.0 in stage 1.0 (TID 99)
+22/09/08 23:54:12 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:12 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:12 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:15 INFO PythonRunner: Times: total = 2855, boot = -20, init = 23, finish = 2852
+22/09/08 23:54:15 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000024_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000024
+22/09/08 23:54:15 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000024_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:54:15 INFO Executor: Finished task 24.0 in stage 1.0 (TID 99). 1960 bytes result sent to driver
+22/09/08 23:54:15 INFO TaskSetManager: Starting task 25.0 in stage 1.0 (TID 100) (172.28.105.141, executor driver, partition 25, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:15 INFO TaskSetManager: Finished task 24.0 in stage 1.0 (TID 99) in 2885 ms on 172.28.105.141 (executor driver) (25/75)
+22/09/08 23:54:15 INFO Executor: Running task 25.0 in stage 1.0 (TID 100)
+22/09/08 23:54:15 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:15 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:15 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:15 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:15 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:18 INFO PythonRunner: Times: total = 2982, boot = -28, init = 29, finish = 2981
+22/09/08 23:54:18 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000025_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000025
+22/09/08 23:54:18 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000025_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:18 INFO Executor: Finished task 25.0 in stage 1.0 (TID 100). 1960 bytes result sent to driver
+22/09/08 23:54:18 INFO TaskSetManager: Starting task 26.0 in stage 1.0 (TID 101) (172.28.105.141, executor driver, partition 26, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:18 INFO TaskSetManager: Finished task 25.0 in stage 1.0 (TID 100) in 3003 ms on 172.28.105.141 (executor driver) (26/75)
+22/09/08 23:54:18 INFO Executor: Running task 26.0 in stage 1.0 (TID 101)
+22/09/08 23:54:18 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:18 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:18 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:18 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:18 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:21 INFO PythonRunner: Times: total = 2920, boot = -15, init = 17, finish = 2918
+22/09/08 23:54:21 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000026_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000026
+22/09/08 23:54:21 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000026_0: Committed. Elapsed time: 6 ms.
+22/09/08 23:54:21 INFO Executor: Finished task 26.0 in stage 1.0 (TID 101). 1960 bytes result sent to driver
+22/09/08 23:54:21 INFO TaskSetManager: Starting task 27.0 in stage 1.0 (TID 102) (172.28.105.141, executor driver, partition 27, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:21 INFO Executor: Running task 27.0 in stage 1.0 (TID 102)
+22/09/08 23:54:21 INFO TaskSetManager: Finished task 26.0 in stage 1.0 (TID 101) in 2942 ms on 172.28.105.141 (executor driver) (27/75)
+22/09/08 23:54:21 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:21 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:21 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:21 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:21 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:23 INFO PythonRunner: Times: total = 2857, boot = -17, init = 18, finish = 2856
+22/09/08 23:54:23 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000027_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000027
+22/09/08 23:54:23 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000027_0: Committed. Elapsed time: 14 ms.
+22/09/08 23:54:23 INFO Executor: Finished task 27.0 in stage 1.0 (TID 102). 1960 bytes result sent to driver
+22/09/08 23:54:23 INFO TaskSetManager: Starting task 28.0 in stage 1.0 (TID 103) (172.28.105.141, executor driver, partition 28, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:23 INFO TaskSetManager: Finished task 27.0 in stage 1.0 (TID 102) in 2916 ms on 172.28.105.141 (executor driver) (28/75)
+22/09/08 23:54:23 INFO Executor: Running task 28.0 in stage 1.0 (TID 103)
+22/09/08 23:54:23 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:23 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:23 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:23 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:23 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:26 INFO PythonRunner: Times: total = 2966, boot = -56, init = 57, finish = 2965
+22/09/08 23:54:26 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000028_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000028
+22/09/08 23:54:26 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000028_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:26 INFO Executor: Finished task 28.0 in stage 1.0 (TID 103). 1960 bytes result sent to driver
+22/09/08 23:54:26 INFO TaskSetManager: Starting task 29.0 in stage 1.0 (TID 104) (172.28.105.141, executor driver, partition 29, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:26 INFO TaskSetManager: Finished task 28.0 in stage 1.0 (TID 103) in 2988 ms on 172.28.105.141 (executor driver) (29/75)
+22/09/08 23:54:26 INFO Executor: Running task 29.0 in stage 1.0 (TID 104)
+22/09/08 23:54:26 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:26 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:26 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:26 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:26 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:29 INFO PythonRunner: Times: total = 2949, boot = -17, init = 18, finish = 2948
+22/09/08 23:54:29 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000029_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000029
+22/09/08 23:54:29 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000029_0: Committed. Elapsed time: 12 ms.
+22/09/08 23:54:29 INFO Executor: Finished task 29.0 in stage 1.0 (TID 104). 1960 bytes result sent to driver
+22/09/08 23:54:29 INFO TaskSetManager: Starting task 30.0 in stage 1.0 (TID 105) (172.28.105.141, executor driver, partition 30, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:29 INFO Executor: Running task 30.0 in stage 1.0 (TID 105)
+22/09/08 23:54:29 INFO TaskSetManager: Finished task 29.0 in stage 1.0 (TID 104) in 2995 ms on 172.28.105.141 (executor driver) (30/75)
+22/09/08 23:54:29 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:29 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:29 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:29 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:29 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:33 INFO PythonRunner: Times: total = 3067, boot = -41, init = 42, finish = 3066
+22/09/08 23:54:33 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000030_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000030
+22/09/08 23:54:33 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000030_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:54:33 INFO Executor: Finished task 30.0 in stage 1.0 (TID 105). 1960 bytes result sent to driver
+22/09/08 23:54:33 INFO TaskSetManager: Starting task 31.0 in stage 1.0 (TID 106) (172.28.105.141, executor driver, partition 31, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:33 INFO Executor: Running task 31.0 in stage 1.0 (TID 106)
+22/09/08 23:54:33 INFO TaskSetManager: Finished task 30.0 in stage 1.0 (TID 105) in 3087 ms on 172.28.105.141 (executor driver) (31/75)
+22/09/08 23:54:33 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:33 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:33 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:33 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:33 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:35 INFO PythonRunner: Times: total = 2843, boot = -15, init = 17, finish = 2841
+22/09/08 23:54:35 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000031_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000031
+22/09/08 23:54:35 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000031_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:35 INFO Executor: Finished task 31.0 in stage 1.0 (TID 106). 1960 bytes result sent to driver
+22/09/08 23:54:35 INFO TaskSetManager: Starting task 32.0 in stage 1.0 (TID 107) (172.28.105.141, executor driver, partition 32, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:35 INFO Executor: Running task 32.0 in stage 1.0 (TID 107)
+22/09/08 23:54:35 INFO TaskSetManager: Finished task 31.0 in stage 1.0 (TID 106) in 2874 ms on 172.28.105.141 (executor driver) (32/75)
+22/09/08 23:54:35 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:35 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:35 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:35 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:35 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:38 INFO PythonRunner: Times: total = 3016, boot = -27, init = 29, finish = 3014
+22/09/08 23:54:38 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000032_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000032
+22/09/08 23:54:38 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000032_0: Committed. Elapsed time: 7 ms.
+22/09/08 23:54:38 INFO Executor: Finished task 32.0 in stage 1.0 (TID 107). 1960 bytes result sent to driver
+22/09/08 23:54:38 INFO TaskSetManager: Starting task 33.0 in stage 1.0 (TID 108) (172.28.105.141, executor driver, partition 33, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:38 INFO TaskSetManager: Finished task 32.0 in stage 1.0 (TID 107) in 3040 ms on 172.28.105.141 (executor driver) (33/75)
+22/09/08 23:54:38 INFO Executor: Running task 33.0 in stage 1.0 (TID 108)
+22/09/08 23:54:38 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:38 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:38 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:38 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:38 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:41 INFO PythonRunner: Times: total = 2965, boot = -18, init = 19, finish = 2964
+22/09/08 23:54:41 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000033_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000033
+22/09/08 23:54:41 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000033_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:41 INFO Executor: Finished task 33.0 in stage 1.0 (TID 108). 1960 bytes result sent to driver
+22/09/08 23:54:41 INFO TaskSetManager: Starting task 34.0 in stage 1.0 (TID 109) (172.28.105.141, executor driver, partition 34, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:41 INFO Executor: Running task 34.0 in stage 1.0 (TID 109)
+22/09/08 23:54:41 INFO TaskSetManager: Finished task 33.0 in stage 1.0 (TID 108) in 2984 ms on 172.28.105.141 (executor driver) (34/75)
+22/09/08 23:54:41 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:41 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:41 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:41 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:41 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:46 INFO PythonRunner: Times: total = 4837, boot = -15, init = 16, finish = 4836
+22/09/08 23:54:46 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000034_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000034
+22/09/08 23:54:46 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000034_0: Committed. Elapsed time: 11 ms.
+22/09/08 23:54:46 INFO Executor: Finished task 34.0 in stage 1.0 (TID 109). 1960 bytes result sent to driver
+22/09/08 23:54:46 INFO TaskSetManager: Starting task 35.0 in stage 1.0 (TID 110) (172.28.105.141, executor driver, partition 35, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:46 INFO TaskSetManager: Finished task 34.0 in stage 1.0 (TID 109) in 4881 ms on 172.28.105.141 (executor driver) (35/75)
+22/09/08 23:54:46 INFO Executor: Running task 35.0 in stage 1.0 (TID 110)
+22/09/08 23:54:46 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:46 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:46 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:46 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:46 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:49 INFO PythonRunner: Times: total = 3077, boot = -41, init = 43, finish = 3075
+22/09/08 23:54:50 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000035_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000035
+22/09/08 23:54:50 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000035_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:50 INFO Executor: Finished task 35.0 in stage 1.0 (TID 110). 1960 bytes result sent to driver
+22/09/08 23:54:50 INFO TaskSetManager: Starting task 36.0 in stage 1.0 (TID 111) (172.28.105.141, executor driver, partition 36, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:50 INFO TaskSetManager: Finished task 35.0 in stage 1.0 (TID 110) in 3500 ms on 172.28.105.141 (executor driver) (36/75)
+22/09/08 23:54:50 INFO Executor: Running task 36.0 in stage 1.0 (TID 111)
+22/09/08 23:54:50 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:50 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:50 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:50 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:50 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:53 INFO PythonRunner: Times: total = 3553, boot = -418, init = 420, finish = 3551
+22/09/08 23:54:54 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000036_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000036
+22/09/08 23:54:54 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000036_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:54 INFO Executor: Finished task 36.0 in stage 1.0 (TID 111). 1960 bytes result sent to driver
+22/09/08 23:54:54 INFO TaskSetManager: Starting task 37.0 in stage 1.0 (TID 112) (172.28.105.141, executor driver, partition 37, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:54 INFO TaskSetManager: Finished task 36.0 in stage 1.0 (TID 111) in 3975 ms on 172.28.105.141 (executor driver) (37/75)
+22/09/08 23:54:54 INFO Executor: Running task 37.0 in stage 1.0 (TID 112)
+22/09/08 23:54:54 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:54 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:54 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:54:57 INFO PythonRunner: Times: total = 3121, boot = -416, init = 418, finish = 3119
+22/09/08 23:54:57 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000037_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000037
+22/09/08 23:54:57 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000037_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:54:57 INFO Executor: Finished task 37.0 in stage 1.0 (TID 112). 1960 bytes result sent to driver
+22/09/08 23:54:57 INFO TaskSetManager: Starting task 38.0 in stage 1.0 (TID 113) (172.28.105.141, executor driver, partition 38, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:54:57 INFO TaskSetManager: Finished task 37.0 in stage 1.0 (TID 112) in 3140 ms on 172.28.105.141 (executor driver) (38/75)
+22/09/08 23:54:57 INFO Executor: Running task 38.0 in stage 1.0 (TID 113)
+22/09/08 23:54:57 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:54:57 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:54:57 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:54:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:54:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:00 INFO PythonRunner: Times: total = 3127, boot = -15, init = 17, finish = 3125
+22/09/08 23:55:00 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000038_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000038
+22/09/08 23:55:00 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000038_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:55:00 INFO Executor: Finished task 38.0 in stage 1.0 (TID 113). 1960 bytes result sent to driver
+22/09/08 23:55:00 INFO TaskSetManager: Starting task 39.0 in stage 1.0 (TID 114) (172.28.105.141, executor driver, partition 39, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:00 INFO Executor: Running task 39.0 in stage 1.0 (TID 114)
+22/09/08 23:55:00 INFO TaskSetManager: Finished task 38.0 in stage 1.0 (TID 113) in 3148 ms on 172.28.105.141 (executor driver) (39/75)
+22/09/08 23:55:00 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:00 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:00 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:00 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:00 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:03 INFO PythonRunner: Times: total = 3023, boot = -15, init = 17, finish = 3021
+22/09/08 23:55:03 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000039_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000039
+22/09/08 23:55:03 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000039_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:03 INFO Executor: Finished task 39.0 in stage 1.0 (TID 114). 1960 bytes result sent to driver
+22/09/08 23:55:03 INFO TaskSetManager: Starting task 40.0 in stage 1.0 (TID 115) (172.28.105.141, executor driver, partition 40, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:03 INFO TaskSetManager: Finished task 39.0 in stage 1.0 (TID 114) in 3057 ms on 172.28.105.141 (executor driver) (40/75)
+22/09/08 23:55:03 INFO Executor: Running task 40.0 in stage 1.0 (TID 115)
+22/09/08 23:55:03 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:03 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:03 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:03 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:03 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:06 INFO PythonRunner: Times: total = 3228, boot = -30, init = 32, finish = 3226
+22/09/08 23:55:06 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000040_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000040
+22/09/08 23:55:06 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000040_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:06 INFO Executor: Finished task 40.0 in stage 1.0 (TID 115). 1960 bytes result sent to driver
+22/09/08 23:55:06 INFO TaskSetManager: Starting task 41.0 in stage 1.0 (TID 116) (172.28.105.141, executor driver, partition 41, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:06 INFO TaskSetManager: Finished task 40.0 in stage 1.0 (TID 115) in 3247 ms on 172.28.105.141 (executor driver) (41/75)
+22/09/08 23:55:06 INFO Executor: Running task 41.0 in stage 1.0 (TID 116)
+22/09/08 23:55:06 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:06 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:06 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:06 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:06 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:10 INFO PythonRunner: Times: total = 3212, boot = -15, init = 16, finish = 3211
+22/09/08 23:55:10 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000041_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000041
+22/09/08 23:55:10 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000041_0: Committed. Elapsed time: 12 ms.
+22/09/08 23:55:10 INFO Executor: Finished task 41.0 in stage 1.0 (TID 116). 1960 bytes result sent to driver
+22/09/08 23:55:10 INFO TaskSetManager: Starting task 42.0 in stage 1.0 (TID 117) (172.28.105.141, executor driver, partition 42, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:10 INFO TaskSetManager: Finished task 41.0 in stage 1.0 (TID 116) in 3662 ms on 172.28.105.141 (executor driver) (42/75)
+22/09/08 23:55:10 INFO Executor: Running task 42.0 in stage 1.0 (TID 117)
+22/09/08 23:55:10 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:10 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:10 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:10 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:10 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:13 INFO PythonRunner: Times: total = 3203, boot = -445, init = 446, finish = 3202
+22/09/08 23:55:14 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000042_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000042
+22/09/08 23:55:14 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000042_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:55:14 INFO Executor: Finished task 42.0 in stage 1.0 (TID 117). 1960 bytes result sent to driver
+22/09/08 23:55:14 INFO TaskSetManager: Starting task 43.0 in stage 1.0 (TID 118) (172.28.105.141, executor driver, partition 43, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:14 INFO TaskSetManager: Finished task 42.0 in stage 1.0 (TID 117) in 3624 ms on 172.28.105.141 (executor driver) (43/75)
+22/09/08 23:55:14 INFO Executor: Running task 43.0 in stage 1.0 (TID 118)
+22/09/08 23:55:14 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:14 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:14 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:14 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:14 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:17 INFO PythonRunner: Times: total = 3043, boot = -418, init = 419, finish = 3042
+22/09/08 23:55:17 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000043_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000043
+22/09/08 23:55:17 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000043_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:17 INFO Executor: Finished task 43.0 in stage 1.0 (TID 118). 1960 bytes result sent to driver
+22/09/08 23:55:17 INFO TaskSetManager: Starting task 44.0 in stage 1.0 (TID 119) (172.28.105.141, executor driver, partition 44, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:17 INFO TaskSetManager: Finished task 43.0 in stage 1.0 (TID 118) in 3063 ms on 172.28.105.141 (executor driver) (44/75)
+22/09/08 23:55:17 INFO Executor: Running task 44.0 in stage 1.0 (TID 119)
+22/09/08 23:55:17 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:17 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:17 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:17 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:17 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:20 INFO PythonRunner: Times: total = 3077, boot = -14, init = 16, finish = 3075
+22/09/08 23:55:20 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000044_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000044
+22/09/08 23:55:20 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000044_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:55:20 INFO Executor: Finished task 44.0 in stage 1.0 (TID 119). 1960 bytes result sent to driver
+22/09/08 23:55:20 INFO TaskSetManager: Starting task 45.0 in stage 1.0 (TID 120) (172.28.105.141, executor driver, partition 45, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:20 INFO Executor: Running task 45.0 in stage 1.0 (TID 120)
+22/09/08 23:55:20 INFO TaskSetManager: Finished task 44.0 in stage 1.0 (TID 119) in 3508 ms on 172.28.105.141 (executor driver) (45/75)
+22/09/08 23:55:20 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:20 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:20 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:20 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:23 INFO PythonRunner: Times: total = 2993, boot = -429, init = 430, finish = 2992
+22/09/08 23:55:24 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000045_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000045
+22/09/08 23:55:24 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000045_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:55:24 INFO Executor: Finished task 45.0 in stage 1.0 (TID 120). 1960 bytes result sent to driver
+22/09/08 23:55:24 INFO TaskSetManager: Starting task 46.0 in stage 1.0 (TID 121) (172.28.105.141, executor driver, partition 46, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:24 INFO Executor: Running task 46.0 in stage 1.0 (TID 121)
+22/09/08 23:55:24 INFO TaskSetManager: Finished task 45.0 in stage 1.0 (TID 120) in 3415 ms on 172.28.105.141 (executor driver) (46/75)
+22/09/08 23:55:24 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:24 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:24 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:24 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:24 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:27 INFO PythonRunner: Times: total = 3035, boot = -416, init = 418, finish = 3033
+22/09/08 23:55:27 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000046_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000046
+22/09/08 23:55:27 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000046_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:27 INFO Executor: Finished task 46.0 in stage 1.0 (TID 121). 1960 bytes result sent to driver
+22/09/08 23:55:27 INFO TaskSetManager: Starting task 47.0 in stage 1.0 (TID 122) (172.28.105.141, executor driver, partition 47, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:27 INFO TaskSetManager: Finished task 46.0 in stage 1.0 (TID 121) in 3055 ms on 172.28.105.141 (executor driver) (47/75)
+22/09/08 23:55:27 INFO Executor: Running task 47.0 in stage 1.0 (TID 122)
+22/09/08 23:55:27 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:27 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:27 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:27 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:27 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:30 INFO PythonRunner: Times: total = 3079, boot = -15, init = 17, finish = 3077
+22/09/08 23:55:30 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000047_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000047
+22/09/08 23:55:30 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000047_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:30 INFO Executor: Finished task 47.0 in stage 1.0 (TID 122). 1960 bytes result sent to driver
+22/09/08 23:55:30 INFO TaskSetManager: Starting task 48.0 in stage 1.0 (TID 123) (172.28.105.141, executor driver, partition 48, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:30 INFO Executor: Running task 48.0 in stage 1.0 (TID 123)
+22/09/08 23:55:30 INFO TaskSetManager: Finished task 47.0 in stage 1.0 (TID 122) in 3099 ms on 172.28.105.141 (executor driver) (48/75)
+22/09/08 23:55:30 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:30 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:30 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:30 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:33 INFO PythonRunner: Times: total = 3018, boot = -15, init = 16, finish = 3017
+22/09/08 23:55:33 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000048_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000048
+22/09/08 23:55:33 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000048_0: Committed. Elapsed time: 10 ms.
+22/09/08 23:55:33 INFO Executor: Finished task 48.0 in stage 1.0 (TID 123). 1960 bytes result sent to driver
+22/09/08 23:55:33 INFO TaskSetManager: Starting task 49.0 in stage 1.0 (TID 124) (172.28.105.141, executor driver, partition 49, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:33 INFO Executor: Running task 49.0 in stage 1.0 (TID 124)
+22/09/08 23:55:33 INFO TaskSetManager: Finished task 48.0 in stage 1.0 (TID 123) in 3063 ms on 172.28.105.141 (executor driver) (49/75)
+22/09/08 23:55:33 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:33 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:33 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:33 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:33 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:36 INFO PythonRunner: Times: total = 3108, boot = -40, init = 42, finish = 3106
+22/09/08 23:55:36 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000049_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000049
+22/09/08 23:55:36 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000049_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:36 INFO Executor: Finished task 49.0 in stage 1.0 (TID 124). 1960 bytes result sent to driver
+22/09/08 23:55:36 INFO TaskSetManager: Starting task 50.0 in stage 1.0 (TID 125) (172.28.105.141, executor driver, partition 50, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:36 INFO TaskSetManager: Finished task 49.0 in stage 1.0 (TID 124) in 3128 ms on 172.28.105.141 (executor driver) (50/75)
+22/09/08 23:55:36 INFO Executor: Running task 50.0 in stage 1.0 (TID 125)
+22/09/08 23:55:36 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:36 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:36 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:36 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:36 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:40 INFO PythonRunner: Times: total = 3844, boot = -16, init = 17, finish = 3843
+22/09/08 23:55:40 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000050_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000050
+22/09/08 23:55:40 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000050_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:40 INFO Executor: Finished task 50.0 in stage 1.0 (TID 125). 1960 bytes result sent to driver
+22/09/08 23:55:40 INFO TaskSetManager: Starting task 51.0 in stage 1.0 (TID 126) (172.28.105.141, executor driver, partition 51, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:40 INFO TaskSetManager: Finished task 50.0 in stage 1.0 (TID 125) in 3864 ms on 172.28.105.141 (executor driver) (51/75)
+22/09/08 23:55:40 INFO Executor: Running task 51.0 in stage 1.0 (TID 126)
+22/09/08 23:55:40 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:40 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:43 INFO PythonRunner: Times: total = 3412, boot = -16, init = 18, finish = 3410
+22/09/08 23:55:44 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000051_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000051
+22/09/08 23:55:44 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000051_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:55:44 INFO Executor: Finished task 51.0 in stage 1.0 (TID 126). 1960 bytes result sent to driver
+22/09/08 23:55:44 INFO TaskSetManager: Starting task 52.0 in stage 1.0 (TID 127) (172.28.105.141, executor driver, partition 52, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:44 INFO TaskSetManager: Finished task 51.0 in stage 1.0 (TID 126) in 3840 ms on 172.28.105.141 (executor driver) (52/75)
+22/09/08 23:55:44 INFO Executor: Running task 52.0 in stage 1.0 (TID 127)
+22/09/08 23:55:44 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:44 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:44 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:44 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:44 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:47 INFO PythonRunner: Times: total = 3417, boot = -426, init = 429, finish = 3414
+22/09/08 23:55:47 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000052_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000052
+22/09/08 23:55:47 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000052_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:47 INFO Executor: Finished task 52.0 in stage 1.0 (TID 127). 1960 bytes result sent to driver
+22/09/08 23:55:47 INFO TaskSetManager: Starting task 53.0 in stage 1.0 (TID 128) (172.28.105.141, executor driver, partition 53, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:47 INFO Executor: Running task 53.0 in stage 1.0 (TID 128)
+22/09/08 23:55:47 INFO TaskSetManager: Finished task 52.0 in stage 1.0 (TID 127) in 3439 ms on 172.28.105.141 (executor driver) (53/75)
+22/09/08 23:55:47 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:47 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:47 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:50 INFO PythonRunner: Times: total = 3206, boot = -15, init = 16, finish = 3205
+22/09/08 23:55:50 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000053_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000053
+22/09/08 23:55:50 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000053_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:50 INFO Executor: Finished task 53.0 in stage 1.0 (TID 128). 1960 bytes result sent to driver
+22/09/08 23:55:50 INFO TaskSetManager: Starting task 54.0 in stage 1.0 (TID 129) (172.28.105.141, executor driver, partition 54, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:50 INFO TaskSetManager: Finished task 53.0 in stage 1.0 (TID 128) in 3226 ms on 172.28.105.141 (executor driver) (54/75)
+22/09/08 23:55:50 INFO Executor: Running task 54.0 in stage 1.0 (TID 129)
+22/09/08 23:55:50 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:50 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:50 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:50 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:50 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:54 INFO PythonRunner: Times: total = 3208, boot = -15, init = 17, finish = 3206
+22/09/08 23:55:54 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000054_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000054
+22/09/08 23:55:54 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000054_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:55:54 INFO Executor: Finished task 54.0 in stage 1.0 (TID 129). 1960 bytes result sent to driver
+22/09/08 23:55:54 INFO TaskSetManager: Starting task 55.0 in stage 1.0 (TID 130) (172.28.105.141, executor driver, partition 55, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:55:54 INFO Executor: Running task 55.0 in stage 1.0 (TID 130)
+22/09/08 23:55:54 INFO TaskSetManager: Finished task 54.0 in stage 1.0 (TID 129) in 3228 ms on 172.28.105.141 (executor driver) (55/75)
+22/09/08 23:55:54 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:55:54 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:55:54 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:55:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:55:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:55:59 INFO PythonRunner: Times: total = 5502, boot = -16, init = 18, finish = 5500
+22/09/08 23:56:00 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000055_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000055
+22/09/08 23:56:00 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000055_0: Committed. Elapsed time: 23 ms.
+22/09/08 23:56:00 INFO Executor: Finished task 55.0 in stage 1.0 (TID 130). 1960 bytes result sent to driver
+22/09/08 23:56:00 INFO TaskSetManager: Starting task 56.0 in stage 1.0 (TID 131) (172.28.105.141, executor driver, partition 56, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:00 INFO Executor: Running task 56.0 in stage 1.0 (TID 131)
+22/09/08 23:56:00 INFO TaskSetManager: Finished task 55.0 in stage 1.0 (TID 130) in 5951 ms on 172.28.105.141 (executor driver) (56/75)
+22/09/08 23:56:00 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:00 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:00 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:00 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:00 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:03 INFO PythonRunner: Times: total = 3228, boot = -446, init = 447, finish = 3227
+22/09/08 23:56:03 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000056_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000056
+22/09/08 23:56:03 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000056_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:03 INFO Executor: Finished task 56.0 in stage 1.0 (TID 131). 1960 bytes result sent to driver
+22/09/08 23:56:03 INFO TaskSetManager: Starting task 57.0 in stage 1.0 (TID 132) (172.28.105.141, executor driver, partition 57, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:03 INFO TaskSetManager: Finished task 56.0 in stage 1.0 (TID 131) in 3249 ms on 172.28.105.141 (executor driver) (57/75)
+22/09/08 23:56:03 INFO Executor: Running task 57.0 in stage 1.0 (TID 132)
+22/09/08 23:56:03 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:03 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:03 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:03 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:03 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:06 INFO PythonRunner: Times: total = 3186, boot = -13, init = 14, finish = 3185
+22/09/08 23:56:06 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000057_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000057
+22/09/08 23:56:06 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000057_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:06 INFO Executor: Finished task 57.0 in stage 1.0 (TID 132). 1960 bytes result sent to driver
+22/09/08 23:56:06 INFO TaskSetManager: Starting task 58.0 in stage 1.0 (TID 133) (172.28.105.141, executor driver, partition 58, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:06 INFO TaskSetManager: Finished task 57.0 in stage 1.0 (TID 132) in 3204 ms on 172.28.105.141 (executor driver) (58/75)
+22/09/08 23:56:06 INFO Executor: Running task 58.0 in stage 1.0 (TID 133)
+22/09/08 23:56:06 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:06 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:06 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:06 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:06 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:09 INFO PythonRunner: Times: total = 3251, boot = -17, init = 19, finish = 3249
+22/09/08 23:56:10 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000058_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000058
+22/09/08 23:56:10 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000058_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:10 INFO Executor: Finished task 58.0 in stage 1.0 (TID 133). 1960 bytes result sent to driver
+22/09/08 23:56:10 INFO TaskSetManager: Starting task 59.0 in stage 1.0 (TID 134) (172.28.105.141, executor driver, partition 59, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:10 INFO Executor: Running task 59.0 in stage 1.0 (TID 134)
+22/09/08 23:56:10 INFO TaskSetManager: Finished task 58.0 in stage 1.0 (TID 133) in 3677 ms on 172.28.105.141 (executor driver) (59/75)
+22/09/08 23:56:10 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:10 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:10 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:10 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:10 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:13 INFO PythonRunner: Times: total = 3149, boot = -419, init = 421, finish = 3147
+22/09/08 23:56:13 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000059_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000059
+22/09/08 23:56:13 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000059_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:13 INFO Executor: Finished task 59.0 in stage 1.0 (TID 134). 1960 bytes result sent to driver
+22/09/08 23:56:13 INFO TaskSetManager: Starting task 60.0 in stage 1.0 (TID 135) (172.28.105.141, executor driver, partition 60, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:13 INFO TaskSetManager: Finished task 59.0 in stage 1.0 (TID 134) in 3166 ms on 172.28.105.141 (executor driver) (60/75)
+22/09/08 23:56:13 INFO Executor: Running task 60.0 in stage 1.0 (TID 135)
+22/09/08 23:56:13 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:13 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:13 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:13 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:13 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:16 INFO PythonRunner: Times: total = 3118, boot = -11, init = 12, finish = 3117
+22/09/08 23:56:16 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000060_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000060
+22/09/08 23:56:16 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000060_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:16 INFO Executor: Finished task 60.0 in stage 1.0 (TID 135). 1960 bytes result sent to driver
+22/09/08 23:56:16 INFO TaskSetManager: Starting task 61.0 in stage 1.0 (TID 136) (172.28.105.141, executor driver, partition 61, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:16 INFO Executor: Running task 61.0 in stage 1.0 (TID 136)
+22/09/08 23:56:16 INFO TaskSetManager: Finished task 60.0 in stage 1.0 (TID 135) in 3154 ms on 172.28.105.141 (executor driver) (61/75)
+22/09/08 23:56:16 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:16 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:16 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:16 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:16 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:19 INFO PythonRunner: Times: total = 2983, boot = -33, init = 35, finish = 2981
+22/09/08 23:56:19 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000061_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000061
+22/09/08 23:56:19 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000061_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:19 INFO Executor: Finished task 61.0 in stage 1.0 (TID 136). 1960 bytes result sent to driver
+22/09/08 23:56:19 INFO TaskSetManager: Starting task 62.0 in stage 1.0 (TID 137) (172.28.105.141, executor driver, partition 62, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:19 INFO Executor: Running task 62.0 in stage 1.0 (TID 137)
+22/09/08 23:56:19 INFO TaskSetManager: Finished task 61.0 in stage 1.0 (TID 136) in 3001 ms on 172.28.105.141 (executor driver) (62/75)
+22/09/08 23:56:19 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:19 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:19 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:19 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:22 INFO PythonRunner: Times: total = 3057, boot = -14, init = 14, finish = 3057
+22/09/08 23:56:22 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000062_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000062
+22/09/08 23:56:22 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000062_0: Committed. Elapsed time: 11 ms.
+22/09/08 23:56:22 INFO Executor: Finished task 62.0 in stage 1.0 (TID 137). 1960 bytes result sent to driver
+22/09/08 23:56:22 INFO TaskSetManager: Starting task 63.0 in stage 1.0 (TID 138) (172.28.105.141, executor driver, partition 63, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:22 INFO TaskSetManager: Finished task 62.0 in stage 1.0 (TID 137) in 3261 ms on 172.28.105.141 (executor driver) (63/75)
+22/09/08 23:56:22 INFO Executor: Running task 63.0 in stage 1.0 (TID 138)
+22/09/08 23:56:22 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:22 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:22 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:22 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:22 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:25 INFO PythonRunner: Times: total = 3107, boot = -201, init = 202, finish = 3106
+22/09/08 23:56:25 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000063_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000063
+22/09/08 23:56:25 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000063_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:25 INFO Executor: Finished task 63.0 in stage 1.0 (TID 138). 1960 bytes result sent to driver
+22/09/08 23:56:25 INFO TaskSetManager: Starting task 64.0 in stage 1.0 (TID 139) (172.28.105.141, executor driver, partition 64, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:25 INFO Executor: Running task 64.0 in stage 1.0 (TID 139)
+22/09/08 23:56:25 INFO TaskSetManager: Finished task 63.0 in stage 1.0 (TID 138) in 3127 ms on 172.28.105.141 (executor driver) (64/75)
+22/09/08 23:56:25 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:25 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:25 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:25 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:25 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:28 INFO PythonRunner: Times: total = 3001, boot = -16, init = 17, finish = 3000
+22/09/08 23:56:28 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000064_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000064
+22/09/08 23:56:28 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000064_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:28 INFO Executor: Finished task 64.0 in stage 1.0 (TID 139). 1960 bytes result sent to driver
+22/09/08 23:56:28 INFO TaskSetManager: Starting task 65.0 in stage 1.0 (TID 140) (172.28.105.141, executor driver, partition 65, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:28 INFO TaskSetManager: Finished task 64.0 in stage 1.0 (TID 139) in 3020 ms on 172.28.105.141 (executor driver) (65/75)
+22/09/08 23:56:28 INFO Executor: Running task 65.0 in stage 1.0 (TID 140)
+22/09/08 23:56:28 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:28 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:28 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:28 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:40 INFO PythonRunner: Times: total = 11270, boot = -16, init = 16, finish = 11270
+22/09/08 23:56:40 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000065_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000065
+22/09/08 23:56:40 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000065_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:40 INFO Executor: Finished task 65.0 in stage 1.0 (TID 140). 1960 bytes result sent to driver
+22/09/08 23:56:40 INFO TaskSetManager: Starting task 66.0 in stage 1.0 (TID 141) (172.28.105.141, executor driver, partition 66, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:40 INFO TaskSetManager: Finished task 65.0 in stage 1.0 (TID 140) in 11287 ms on 172.28.105.141 (executor driver) (66/75)
+22/09/08 23:56:40 INFO Executor: Running task 66.0 in stage 1.0 (TID 141)
+22/09/08 23:56:40 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:40 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:40 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:40 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:40 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:43 INFO PythonRunner: Times: total = 3527, boot = -14, init = 16, finish = 3525
+22/09/08 23:56:43 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000066_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000066
+22/09/08 23:56:43 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000066_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:43 INFO Executor: Finished task 66.0 in stage 1.0 (TID 141). 1960 bytes result sent to driver
+22/09/08 23:56:43 INFO TaskSetManager: Starting task 67.0 in stage 1.0 (TID 142) (172.28.105.141, executor driver, partition 67, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:43 INFO Executor: Running task 67.0 in stage 1.0 (TID 142)
+22/09/08 23:56:43 INFO TaskSetManager: Finished task 66.0 in stage 1.0 (TID 141) in 3549 ms on 172.28.105.141 (executor driver) (67/75)
+22/09/08 23:56:43 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:43 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+22/09/08 23:56:43 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:43 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:43 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:47 INFO PythonRunner: Times: total = 3431, boot = -17, init = 19, finish = 3429
+22/09/08 23:56:47 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000067_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000067
+22/09/08 23:56:47 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000067_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:47 INFO Executor: Finished task 67.0 in stage 1.0 (TID 142). 1960 bytes result sent to driver
+22/09/08 23:56:47 INFO TaskSetManager: Starting task 68.0 in stage 1.0 (TID 143) (172.28.105.141, executor driver, partition 68, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:47 INFO TaskSetManager: Finished task 67.0 in stage 1.0 (TID 142) in 3851 ms on 172.28.105.141 (executor driver) (68/75)
+22/09/08 23:56:47 INFO Executor: Running task 68.0 in stage 1.0 (TID 143)
+22/09/08 23:56:47 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:47 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:47 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:47 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:47 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:50 INFO PythonRunner: Times: total = 3236, boot = -413, init = 414, finish = 3235
+22/09/08 23:56:51 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000068_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000068
+22/09/08 23:56:51 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000068_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:56:51 INFO Executor: Finished task 68.0 in stage 1.0 (TID 143). 1960 bytes result sent to driver
+22/09/08 23:56:51 INFO TaskSetManager: Starting task 69.0 in stage 1.0 (TID 144) (172.28.105.141, executor driver, partition 69, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:51 INFO Executor: Running task 69.0 in stage 1.0 (TID 144)
+22/09/08 23:56:51 INFO TaskSetManager: Finished task 68.0 in stage 1.0 (TID 143) in 3655 ms on 172.28.105.141 (executor driver) (69/75)
+22/09/08 23:56:51 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:51 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:51 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:51 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:51 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:54 INFO PythonRunner: Times: total = 3401, boot = -414, init = 415, finish = 3400
+22/09/08 23:56:54 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000069_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000069
+22/09/08 23:56:54 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000069_0: Committed. Elapsed time: 6 ms.
+22/09/08 23:56:54 INFO Executor: Finished task 69.0 in stage 1.0 (TID 144). 1960 bytes result sent to driver
+22/09/08 23:56:54 INFO TaskSetManager: Starting task 70.0 in stage 1.0 (TID 145) (172.28.105.141, executor driver, partition 70, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:54 INFO TaskSetManager: Finished task 69.0 in stage 1.0 (TID 144) in 3439 ms on 172.28.105.141 (executor driver) (70/75)
+22/09/08 23:56:54 INFO Executor: Running task 70.0 in stage 1.0 (TID 145)
+22/09/08 23:56:54 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:54 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:54 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:54 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:54 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:56:57 INFO PythonRunner: Times: total = 3127, boot = -38, init = 40, finish = 3125
+22/09/08 23:56:58 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000070_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000070
+22/09/08 23:56:58 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000070_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:56:58 INFO Executor: Finished task 70.0 in stage 1.0 (TID 145). 1960 bytes result sent to driver
+22/09/08 23:56:58 INFO TaskSetManager: Starting task 71.0 in stage 1.0 (TID 146) (172.28.105.141, executor driver, partition 71, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:56:58 INFO TaskSetManager: Finished task 70.0 in stage 1.0 (TID 145) in 3549 ms on 172.28.105.141 (executor driver) (71/75)
+22/09/08 23:56:58 INFO Executor: Running task 71.0 in stage 1.0 (TID 146)
+22/09/08 23:56:58 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:56:58 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:56:58 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:56:58 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:56:58 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:57:01 INFO PythonRunner: Times: total = 3698, boot = -415, init = 417, finish = 3696
+22/09/08 23:57:01 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000071_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000071
+22/09/08 23:57:01 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000071_0: Committed. Elapsed time: 5 ms.
+22/09/08 23:57:01 INFO Executor: Finished task 71.0 in stage 1.0 (TID 146). 1960 bytes result sent to driver
+22/09/08 23:57:01 INFO TaskSetManager: Starting task 72.0 in stage 1.0 (TID 147) (172.28.105.141, executor driver, partition 72, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:57:01 INFO Executor: Running task 72.0 in stage 1.0 (TID 147)
+22/09/08 23:57:01 INFO TaskSetManager: Finished task 71.0 in stage 1.0 (TID 146) in 3719 ms on 172.28.105.141 (executor driver) (72/75)
+22/09/08 23:57:01 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:57:01 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:57:01 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:57:01 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:57:01 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:57:05 INFO PythonRunner: Times: total = 3701, boot = -15, init = 16, finish = 3700
+22/09/08 23:57:05 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000072_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000072
+22/09/08 23:57:05 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000072_0: Committed. Elapsed time: 4 ms.
+22/09/08 23:57:05 INFO Executor: Finished task 72.0 in stage 1.0 (TID 147). 1960 bytes result sent to driver
+22/09/08 23:57:05 INFO TaskSetManager: Starting task 73.0 in stage 1.0 (TID 148) (172.28.105.141, executor driver, partition 73, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:57:05 INFO TaskSetManager: Finished task 72.0 in stage 1.0 (TID 147) in 3720 ms on 172.28.105.141 (executor driver) (73/75)
+22/09/08 23:57:05 INFO Executor: Running task 73.0 in stage 1.0 (TID 148)
+22/09/08 23:57:05 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:57:05 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:57:05 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:57:05 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:57:05 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:57:11 INFO PythonRunner: Times: total = 5460, boot = -17, init = 18, finish = 5459
+22/09/08 23:57:11 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000073_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000073
+22/09/08 23:57:11 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000073_0: Committed. Elapsed time: 3 ms.
+22/09/08 23:57:11 INFO Executor: Finished task 73.0 in stage 1.0 (TID 148). 1960 bytes result sent to driver
+22/09/08 23:57:11 INFO TaskSetManager: Starting task 74.0 in stage 1.0 (TID 149) (172.28.105.141, executor driver, partition 74, ANY, 4271 bytes) taskResourceAssignments Map()
+22/09/08 23:57:11 INFO TaskSetManager: Finished task 73.0 in stage 1.0 (TID 148) in 5481 ms on 172.28.105.141 (executor driver) (74/75)
+22/09/08 23:57:11 INFO Executor: Running task 74.0 in stage 1.0 (TID 149)
+22/09/08 23:57:11 INFO ShuffleBlockFetcherIterator: Getting 75 (139.1 MiB) non-empty blocks including 75 (139.1 MiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+22/09/08 23:57:11 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+22/09/08 23:57:11 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+22/09/08 23:57:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+22/09/08 23:57:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+22/09/08 23:57:14 INFO PythonRunner: Times: total = 3281, boot = -14, init = 16, finish = 3279
+22/09/08 23:57:14 INFO FileOutputCommitter: Saved output of task 'attempt_20220908234540958857925951425462_0008_m_000074_0' to hdfs://localhost:9000/user/ubuntu/output/_temporary/0/task_20220908234540958857925951425462_0008_m_000074
+22/09/08 23:57:14 INFO SparkHadoopMapRedUtil: attempt_20220908234540958857925951425462_0008_m_000074_0: Committed. Elapsed time: 5 ms.
+22/09/08 23:57:14 INFO Executor: Finished task 74.0 in stage 1.0 (TID 149). 1960 bytes result sent to driver
+22/09/08 23:57:14 INFO TaskSetManager: Finished task 74.0 in stage 1.0 (TID 149) in 3302 ms on 172.28.105.141 (executor driver) (75/75)
+22/09/08 23:57:14 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+22/09/08 23:57:14 INFO DAGScheduler: ResultStage 1 (runJob at SparkHadoopWriter.scala:83) finished in 253.360 s
+22/09/08 23:57:14 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+22/09/08 23:57:14 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+22/09/08 23:57:14 INFO DAGScheduler: Job 0 finished: runJob at SparkHadoopWriter.scala:83, took 693.652455 s
+22/09/08 23:57:14 INFO SparkHadoopWriter: Start to commit write Job job_20220908234540958857925951425462_0008.
+22/09/08 23:57:14 INFO SparkHadoopWriter: Write Job job_20220908234540958857925951425462_0008 committed. Elapsed time: 294 ms.
+22/09/08 23:57:14 INFO SparkContext: Invoking stop() from shutdown hook
+22/09/08 23:57:14 INFO SparkUI: Stopped Spark web UI at http://localhost:4040
+22/09/08 23:57:14 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+22/09/08 23:57:15 INFO MemoryStore: MemoryStore cleared
+22/09/08 23:57:15 INFO BlockManager: BlockManager stopped
+22/09/08 23:57:15 INFO BlockManagerMaster: BlockManagerMaster stopped
+22/09/08 23:57:15 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+22/09/08 23:57:15 INFO SparkContext: Successfully stopped SparkContext
+22/09/08 23:57:15 INFO ShutdownHookManager: Shutdown hook called
+22/09/08 23:57:15 INFO ShutdownHookManager: Deleting directory /tmp/spark-cffd7ce8-5a95-44bf-b1ed-47d25fe287f5
+22/09/08 23:57:15 INFO ShutdownHookManager: Deleting directory /tmp/spark-b54364f4-8f14-455c-8f18-ba079d8945b6/pyspark-c2e5b48d-b71c-446c-82ca-0b68813012dd
+22/09/08 23:57:15 INFO ShutdownHookManager: Deleting directory /tmp/spark-b54364f4-8f14-455c-8f18-ba079d8945b6
